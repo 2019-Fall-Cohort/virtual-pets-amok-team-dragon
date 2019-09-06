@@ -26,4 +26,22 @@ public class VirtualPetTest {
 		int expected = underTest.getHunger;
 		assertEquals(expected, 10);
 	}
+	@Test
+	public void shouldHaveDefaultFatigue() {
+		VirtualPet underTest = new VirtualPet("Dragon");
+		int expected = underTest.getFatigue;
+		assertEquals(expected, 10);
+	}
+	@Test
+	public void shouldHaveDefaultMagic() {
+		VirtualPet underTest = new VirtualPet("Dragon");
+		int expected = underTest.getMagic;
+		assertEquals(expected, 10);
+	}
+	@Test
+	public void shouldHaveDefaultBoredom() {
+		VirtualPet underTest = new VirtualPet("Dragon");
+		int expected = underTest.getBoredom;
+		assertEquals(expected, 10);
+	}
 }
