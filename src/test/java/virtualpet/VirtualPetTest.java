@@ -104,6 +104,7 @@ public class VirtualPetTest {
 			assertEquals(underTest.Magic, 11);
 			
 		}
-		
+	
+	
 }
 

@@ -11,18 +11,17 @@ public class VirtualPetApp {
 		String petName = userInput.nextLine();
 		VirtualPet pet = new VirtualPet(petName);
 		
-		displayMenu(pet);
+		pet.displayMenu();
 		
 		do {
 		
 			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
 			String response = userInput.nextLine().trim().toLowerCase();			
 			determineUserResponse(response, pet);				
-			displayMenu(pet);
+			
 			
 			pet.tick();
-			System.out.println("Ticking...");
-			displayMenu(pet);
+			pet.displayMenu();
 			
 		} while (1!=2); // What is a better option for this loop?
 			
@@ -68,16 +67,6 @@ public class VirtualPetApp {
 		
 	}
 
-	public static void displayMenu(VirtualPet pet) {
-		
-		System.out.println("");
-		System.out.println("Current attributes for: " + pet.name);
-		System.out.println("Hunger: " + pet.Hunger);
-		System.out.println("Fatigue: " + pet.Fatigue);
-		System.out.println("Boredom: " + pet.Boredom);
-		System.out.println("Magic: " + pet.Magic);
-		System.out.println("");
-				
-	}
+
 
 }

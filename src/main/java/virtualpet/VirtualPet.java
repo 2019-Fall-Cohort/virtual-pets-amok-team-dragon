@@ -22,6 +22,9 @@ public class VirtualPet {
 		if(Hunger < 0){
 			Hunger = -1;
 		}
+		if(Hunger >=10) {
+			Hunger = 9;
+		}
 		return Hunger;
 	}
 
@@ -58,7 +61,28 @@ public class VirtualPet {
 		Fatigue ++;
 		Boredom ++;
 		Magic ++;
-		
+		if (Hunger >10) {
+			Hunger = 10;
+		}
+		if (Fatigue >10) {
+			Fatigue =10;
+		}
+		if (Boredom >10) {
+			Boredom =10;
+		}
+		if (Magic >10) {
+			Magic =10;
+		}
 	}
-
+	public void displayMenu() {
+		
+		System.out.println("");
+		System.out.println("Current attributes for: " + name);
+		System.out.println("Hunger: " + Hunger);
+		System.out.println("Fatigue: " + Fatigue);
+		System.out.println("Boredom: " + Boredom);
+		System.out.println("Magic: " + Magic);
+		System.out.println("");
+				
+	}
 }
