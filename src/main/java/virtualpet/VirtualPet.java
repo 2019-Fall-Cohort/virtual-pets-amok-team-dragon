@@ -17,34 +17,38 @@ public class VirtualPet {
 	}
 
 	public int feedDragon(int amountFed) {
+		amountFed++;
 		Hunger = Hunger - amountFed;
-		if(Hunger < 0) {
-			Hunger = 0;
+		if(Hunger < 0){
+			Hunger = -1;
 		}
 		return Hunger;
 	}
 
 	public int restDragon(int amountRested) {
+		amountRested++;
 		Fatigue = Fatigue - amountRested;
 		if(Fatigue < 0) {
-			Fatigue = 0;
+			Fatigue = -1;
 		}
 		return Fatigue;
 	}
 
 	public int playWithDragon(int timePlayed) {
+		timePlayed++;
 		Boredom = Boredom - timePlayed;
 		if(Boredom < 0) {
-			Boredom = 0;
+			Boredom = -1;
 		} 
 			
 		return Boredom;
 	}
 
 	public int breathsFire(int breathFire) {
+		breathFire++;
 		Magic = Magic - breathFire;
 		if(Magic < 0) {
-			return Magic = 0;
+			return Magic = -1;
 		}
 		return Magic;
 	}

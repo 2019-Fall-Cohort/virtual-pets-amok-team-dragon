@@ -36,28 +36,28 @@ public class VirtualPetApp {
 			System.out.println("How much do you want to feed " + pet.name + "?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			pet.feedDragon(amount+1);
+			pet.feedDragon(amount);
 			break;
 			
 		case "rest":
 			System.out.println("How much do you want " + pet.name + " to rest?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			pet.restDragon(amount+1);
+			pet.restDragon(amount);
 			break;
 			
 		case "play":
 			System.out.println("How much play time do you want " + pet.name + " to have?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			pet.playWithDragon(amount+1);
+			pet.playWithDragon(amount);
 			break;
 			
 		case "fire":
 			System.out.println("How long should " + pet.name + " breath fire?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			pet.breathsFire(amount+1);
+			pet.breathsFire(amount);
 			break;
 			
 		case "quit":
