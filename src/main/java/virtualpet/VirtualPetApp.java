@@ -13,7 +13,7 @@ public class VirtualPetApp {
 		
 		pet.displayMenu();
 		
-		do {
+		while (true) {
 		
 			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
 			String response = userInput.nextLine().trim().toLowerCase();			
@@ -23,7 +23,7 @@ public class VirtualPetApp {
 			pet.tick();
 			pet.displayMenu();
 			
-		} while (1!=2); // What is a better option for this loop?
+		} 
 			
 	}
 	
@@ -62,7 +62,9 @@ public class VirtualPetApp {
 		case "quit":
 			System.out.println("Okay, BYEEEEE!!!!");
 			System.exit(0);
-			
+		
+		default:
+			System.out.println("You so silly!");
 		}
 		
 	}

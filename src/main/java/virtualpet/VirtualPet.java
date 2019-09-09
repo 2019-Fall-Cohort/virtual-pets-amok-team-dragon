@@ -1,13 +1,19 @@
 package virtualpet;
 
+import java.util.Random;
+
 public class VirtualPet {
+	static int minValue = 0;
+	static int maxValue = 100;
+	int tickValue = 7;
 	
 	public String name;
-	public int Hunger = 10;
-	public int Fatigue = 10;
-	public int Magic = 10;
-	public int Boredom = 10;
-
+	public int Hunger = newValue();
+	public int Fatigue = newValue();
+	public int Magic = newValue();
+	public int Boredom = newValue();
+	
+	
 	public VirtualPet(String givenName) {
 		name = givenName;
 	}
@@ -17,61 +23,70 @@ public class VirtualPet {
 	}
 
 	public int feedDragon(int amountFed) {
-		amountFed++;
+		amountFed = amountFed + tickValue;
 		Hunger = Hunger - amountFed;
-		if(Hunger < 0){
-			Hunger = -1;
+		if(Hunger < minValue){
+			Hunger = minValue - tickValue;
 		}
-		if(Hunger >=10) {
-			Hunger = 9;
+		if(Hunger >= maxValue) {
+			Hunger = maxValue - tickValue;
 		}
 		return Hunger;
 	}
 
 	public int restDragon(int amountRested) {
-		amountRested++;
+		amountRested = amountRested + tickValue;
 		Fatigue = Fatigue - amountRested;
-		if(Fatigue < 0) {
-			Fatigue = -1;
+		if(Fatigue < minValue) {
+			Fatigue = minValue - tickValue;
+		}
+		if(Fatigue >= maxValue) {
+			Fatigue = maxValue - tickValue;
 		}
 		return Fatigue;
 	}
 
 	public int playWithDragon(int timePlayed) {
-		timePlayed++;
+		timePlayed = timePlayed + tickValue;
 		Boredom = Boredom - timePlayed;
-		if(Boredom < 0) {
-			Boredom = -1;
+		if(Boredom < minValue) {
+			Boredom = minValue - tickValue;
 		} 
+		if (Boredom >= maxValue) {
+			Boredom = maxValue - tickValue;
+		}
 			
 		return Boredom;
 	}
 
 	public int breathsFire(int breathFire) {
-		breathFire++;
+		breathFire = breathFire + tickValue;
 		Magic = Magic - breathFire;
-		if(Magic < 0) {
-			return Magic = -1;
+		if(Magic < minValue) {
+			return Magic = minValue - tickValue;
+		}
+		if(Magic >= maxValue) {
+			Magic = maxValue - tickValue;
 		}
 		return Magic;
 	}
 
 	public void tick() {
-		Hunger ++;
-		Fatigue ++;
-		Boredom ++;
-		Magic ++;
-		if (Hunger >10) {
-			Hunger = 10;
+		Hunger = Hunger + tickValue;
+		Fatigue = Fatigue + tickValue;
+		Boredom = Boredom + tickValue;
+		Magic = Magic + tickValue;
+		if (Hunger >maxValue) {
+			Hunger = maxValue;
 		}
-		if (Fatigue >10) {
-			Fatigue =10;
+		if (Fatigue >maxValue) {
+			Fatigue =maxValue;
 		}
-		if (Boredom >10) {
-			Boredom =10;
+		if (Boredom >maxValue) {
+			Boredom =maxValue;
 		}
-		if (Magic >10) {
-			Magic =10;
+		if (Magic >maxValue) {
+			Magic =maxValue;
 		}
 	}
 	public void displayMenu() {
@@ -84,5 +99,11 @@ public class VirtualPet {
 		System.out.println("Magic: " + Magic);
 		System.out.println("");
 				
+	}
+	
+	public int newValue(){
+		Random rand = new Random();
+		int randomNum = rand.nextInt((maxValue - minValue) + 1) + minValue;
+		return randomNum;
 	}
 }
