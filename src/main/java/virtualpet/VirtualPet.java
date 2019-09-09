@@ -3,15 +3,18 @@ package virtualpet;
 import java.util.Random;
 
 public class VirtualPet {
-	static int minValue = 0;
-	static int maxValue = 100;
-	int tickValue = 7;
 	
+	// Constants
+	static int minValue = 0;
+	static int maxValue = 100;	
+	
+	// Pet Attributes
 	public String name;
-	public int Hunger = newValue();
-	public int Fatigue = newValue();
-	public int Magic = newValue();
-	public int Boredom = newValue();
+	public int Hunger = newValue(25);
+	public int Fatigue = newValue(25);
+	public int Magic = newValue(15);
+	public int Boredom = newValue(25);
+	public int tickValue = newValue(10);
 	
 	
 	public VirtualPet(String givenName) {
@@ -104,6 +107,12 @@ public class VirtualPet {
 	public int newValue(){
 		Random rand = new Random();
 		int randomNum = rand.nextInt((maxValue - minValue) + 1) + minValue;
+		return randomNum;
+	}
+	
+	public int newValue(int newMaxValue){
+		Random rand = new Random();
+		int randomNum = rand.nextInt(newMaxValue);
 		return randomNum;
 	}
 }
