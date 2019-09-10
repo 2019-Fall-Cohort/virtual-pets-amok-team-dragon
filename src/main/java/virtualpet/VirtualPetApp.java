@@ -32,28 +32,28 @@ public class VirtualPetApp {
 		int amount = 0; // amount+1 is below to counter the tick.
 		switch (response) {
 		case "feed":
-			System.out.println("How much do you want to feed " + pet.name + "?");
+			System.out.println("How much do you want to feed " + pet.getName() + "?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			pet.feedDragon(amount);
 			break;
 			
 		case "rest":
-			System.out.println("How much do you want " + pet.name + " to rest?");
+			System.out.println("How much do you want " + pet.getName() + " to rest?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			pet.restDragon(amount);
 			break;
 			
 		case "play":
-			System.out.println("How much play time do you want " + pet.name + " to have?");
+			System.out.println("How much play time do you want " + pet.getName() + " to have?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			pet.playWithDragon(amount);
 			break;
 			
 		case "fire":
-			System.out.println("How long should " + pet.name + " breath fire?");
+			System.out.println("How long should " + pet.getName() + " breath fire?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			pet.breathsFire(amount);

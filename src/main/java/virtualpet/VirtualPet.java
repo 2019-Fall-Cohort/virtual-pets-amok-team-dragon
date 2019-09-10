@@ -6,100 +6,120 @@ public class VirtualPet {
 	
 	// Constants
 	static int minValue = 0;
-	static int maxValue = 100;	
+	static int maxValue = 10;	
 	
 	// Pet Attributes
-	public String name;
-	public int Hunger = newValue(25);
-	public int Fatigue = newValue(25);
-	public int Magic = newValue(15);
-	public int Boredom = newValue(25);
-	public int tickValue = newValue(10);
-	
+	private String name;
+	private int hunger;
+	private int fatigue;
+	private int magic;  
+	private int boredom;
+	private int tickValue;
 	
 	public VirtualPet(String givenName) {
 		name = givenName;
+		hunger = 10;
+		fatigue = 10;
+		magic = 10;
+		boredom = 10;
+		tickValue = 1;
 	}
 
 	public String getName() {
 		return name;
 	}
+	
+	public int getHunger() {
+		return hunger;
+	}
+	
+	public int getFatigue() {
+		return fatigue;
+	}
+	
+	public int getMagic() {
+		return magic;
+	}
+	
+	public int getBoredom() {
+		return boredom;
+	}
 
 	public int feedDragon(int amountFed) {
 		amountFed = amountFed + tickValue;
-		Hunger = Hunger - amountFed;
-		if(Hunger < minValue){
-			Hunger = minValue - tickValue;
+		hunger = hunger - amountFed;
+		if(hunger < minValue){
+			hunger = minValue - tickValue;
 		}
-		if(Hunger >= maxValue) {
-			Hunger = maxValue - tickValue;
+		if(hunger >= maxValue) {
+			hunger = maxValue - tickValue;
 		}
-		return Hunger;
+		return hunger;
 	}
 
 	public int restDragon(int amountRested) {
 		amountRested = amountRested + tickValue;
-		Fatigue = Fatigue - amountRested;
-		if(Fatigue < minValue) {
-			Fatigue = minValue - tickValue;
+		fatigue = fatigue - amountRested;
+		if(fatigue < minValue) {
+			fatigue = minValue - tickValue;
 		}
-		if(Fatigue >= maxValue) {
-			Fatigue = maxValue - tickValue;
+		if(fatigue >= maxValue) {
+			fatigue = maxValue - tickValue;
 		}
-		return Fatigue;
+		return fatigue;
 	}
 
 	public int playWithDragon(int timePlayed) {
 		timePlayed = timePlayed + tickValue;
-		Boredom = Boredom - timePlayed;
-		if(Boredom < minValue) {
-			Boredom = minValue - tickValue;
+		boredom = boredom - timePlayed;
+		if(boredom < minValue) {
+			boredom = minValue - tickValue;
 		} 
-		if (Boredom >= maxValue) {
-			Boredom = maxValue - tickValue;
+		if (boredom >= maxValue) {
+			boredom = maxValue - tickValue;
 		}
 			
-		return Boredom;
+		return boredom;
 	}
 
 	public int breathsFire(int breathFire) {
 		breathFire = breathFire + tickValue;
-		Magic = Magic - breathFire;
-		if(Magic < minValue) {
-			return Magic = minValue - tickValue;
+		magic = magic - breathFire;
+		if(magic < minValue) {
+			return magic = minValue - tickValue;
 		}
-		if(Magic >= maxValue) {
-			Magic = maxValue - tickValue;
+		if(magic >= maxValue) {
+			magic = maxValue - tickValue;
 		}
-		return Magic;
+		return magic;
 	}
 
 	public void tick() {
-		Hunger = Hunger + tickValue;
-		Fatigue = Fatigue + tickValue;
-		Boredom = Boredom + tickValue;
-		Magic = Magic + tickValue;
-		if (Hunger >maxValue) {
-			Hunger = maxValue;
+		hunger = hunger + tickValue;
+		fatigue = fatigue + tickValue;
+		boredom = boredom + tickValue;
+		magic = magic + tickValue;
+		if (hunger >maxValue) {
+			hunger = maxValue;
 		}
-		if (Fatigue >maxValue) {
-			Fatigue =maxValue;
+		if (fatigue >maxValue) {
+			fatigue =maxValue;
 		}
-		if (Boredom >maxValue) {
-			Boredom =maxValue;
+		if (boredom >maxValue) {
+			boredom =maxValue;
 		}
-		if (Magic >maxValue) {
-			Magic =maxValue;
+		if (magic >maxValue) {
+			magic =maxValue;
 		}
 	}
 	public void displayMenu() {
 		
 		System.out.println("");
 		System.out.println("Current attributes for: " + name);
-		System.out.println("Hunger: " + Hunger);
-		System.out.println("Fatigue: " + Fatigue);
-		System.out.println("Boredom: " + Boredom);
-		System.out.println("Magic: " + Magic);
+		System.out.println("Hunger: " + hunger);
+		System.out.println("Fatigue: " + fatigue);
+		System.out.println("Boredom: " + boredom);
+		System.out.println("Magic: " + magic);
 		System.out.println("");
 				
 	}
