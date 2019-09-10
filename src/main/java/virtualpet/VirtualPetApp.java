@@ -8,22 +8,44 @@ public class VirtualPetApp {
 	private static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		while(true) {
 		
 		System.out.println("Welcome to Pet Shelter!");
 		System.out.println("Please chose an option");
-		System.out.println("1; add pet");
-		System.out.println("2; view pets in shelter");
-		System.out.println("3; Interact with a pet");
-		System.out.println("4; Interact with all pets");
+		System.out.println("1: add pet");
+		System.out.println("2: view pets in shelter");
+		System.out.println("3: Interact with a pet");
+		System.out.println("4: Interact with all pets");
 		int userSelection = userInput.nextInt();
 		userInput.nextLine();
-		while(true) {
-			if(userSelection==1) {
+			switch(userSelection) {
+			case 1:
 				System.out.println("What would you like to name your pet");
 				String petName = userInput.nextLine();
 				VirtualPet pet = new VirtualPet(petName);
 				petShelter.addPetToShelter(pet);
-			}if(userSelection==2) {
+				break;
+			case 2:
+				petShelter.retrievePetList();
+				break;
+			case 3:
+				System.out.println("Which pet do you want to interact with?");
+				String thisPet = userInput.nextLine();
+		while (true) {
+		
+			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
+			String response = userInput.nextLine().trim().toLowerCase();			
+			determineUserResponse(response, pet);				
+			
+			
+		pet.tick();
+			pet.displayMenu();
+				
+		} 
+				
+				
+				
+			}
 			}
 		
 		
@@ -31,17 +53,6 @@ public class VirtualPetApp {
 		
 		//pet.displayMenu();
 		
-//		while (true) {
-//		
-//			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
-//			String response = userInput.nextLine().trim().toLowerCase();			
-//			determineUserResponse(response, pet);				
-//			
-//			
-//		pet.tick();
-//			pet.displayMenu();
-			
-//		} 
 		
 	}
 
