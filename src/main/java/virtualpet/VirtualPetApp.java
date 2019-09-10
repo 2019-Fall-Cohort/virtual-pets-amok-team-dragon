@@ -10,26 +10,38 @@ public class VirtualPetApp {
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Pet Shelter!");
-		System.out.println("What would you like to name your pet");
-		String petName = userInput.nextLine();
-		VirtualPet pet = new VirtualPet(petName);
+		System.out.println("Please chose an option");
+		System.out.println("1; add pet");
+		System.out.println("2; view pets in shelter");
+		System.out.println("3; Interact with a pet");
+		System.out.println("4; Interact with all pets");
+		int userSelection = userInput.nextInt();
+		userInput.nextLine();
+		while(true) {
+			if(userSelection==1) {
+				System.out.println("What would you like to name your pet");
+				String petName = userInput.nextLine();
+				VirtualPet pet = new VirtualPet(petName);
+				petShelter.addPetToShelter(pet);
+			}if(userSelection==2) {
+			}
 		
-			petShelter.addPetToShelter(pet);
+		
 	
 		
-		pet.displayMenu();
+		//pet.displayMenu();
 		
-		while (true) {
-		
-			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
-			String response = userInput.nextLine().trim().toLowerCase();			
-			determineUserResponse(response, pet);				
+//		while (true) {
+//		
+//			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
+//			String response = userInput.nextLine().trim().toLowerCase();			
+//			determineUserResponse(response, pet);				
+//			
+//			
+//		pet.tick();
+//			pet.displayMenu();
 			
-			
-			pet.tick();
-			pet.displayMenu();
-			
-		} 
+//		} 
 		
 	}
 
