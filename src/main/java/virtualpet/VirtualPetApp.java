@@ -4,12 +4,18 @@ import java.util.Scanner;
 
 public class VirtualPetApp {
 	
+	static VirtualPetShelter petShelter = new VirtualPetShelter();
 	private static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("What is the name of your pet?");
+		
+		System.out.println("Welcome to Pet Shelter!");
+		System.out.println("What would you like to name your pet");
 		String petName = userInput.nextLine();
 		VirtualPet pet = new VirtualPet(petName);
+		
+			petShelter.addPetToShelter(pet);
+	
 		
 		pet.displayMenu();
 		
@@ -24,9 +30,9 @@ public class VirtualPetApp {
 			pet.displayMenu();
 			
 		} 
-			
+		
 	}
-	
+
 	private static void determineUserResponse(String response, VirtualPet pet) {
 
 		int amount = 0; // amount+1 is below to counter the tick.
