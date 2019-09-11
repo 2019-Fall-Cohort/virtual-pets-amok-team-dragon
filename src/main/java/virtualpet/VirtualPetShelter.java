@@ -1,25 +1,28 @@
 package virtualpet;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class VirtualPetShelter {
 
-	List<VirtualPet> petList;
+	HashMap<String, VirtualPet> petList;
 
 	public VirtualPetShelter() {
-		petList = new ArrayList<>();
+		petList = new HashMap<>();
 
 	}
 
 	public void addPetToShelter(VirtualPet petToAdd) {
-		petList.add(petToAdd);
+		petList.put(petToAdd.getName(), petToAdd);
 
 	}
 
-	public List<VirtualPet> retrievePetList() {
-		return petList;
+	public Collection<VirtualPet> retrievePetList() {
+		return petList.values();
 	}
 	
+	public VirtualPet retrieveVirtualpet(String petName) {
+		return petList.get(petName);
+	}
 	
 }

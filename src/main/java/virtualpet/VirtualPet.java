@@ -112,7 +112,7 @@ public class VirtualPet {
 			magic =maxValue;
 		}
 	}
-	public void displayMenu() {
+	public void displayPetAttributes() {
 		
 		System.out.println("");
 		System.out.println("Current attributes for: " + name);
