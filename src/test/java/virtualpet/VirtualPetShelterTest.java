@@ -1,11 +1,10 @@
 package virtualpet;
 
+import java.util.Collection;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -26,24 +25,52 @@ public class VirtualPetShelterTest {
 	public void shouldBeAbleToAddPetToShelter () {
 		underTest.addPetToShelter(dragon);
 		
-		List<VirtualPet> addedPets = underTest.retrievePetList();
+		Collection<VirtualPet> addedPets = underTest.retrievePetList();
 		
 		assertThat(addedPets, contains(dragon));
 	}
 	
 	@Test
-	public void testName() throws Exception {
+	public void shouldBeAbleToAddMultiplePets() {
 		VirtualPet dragon2 = new VirtualPet("Pet2");
 		VirtualPet dragon3 = new VirtualPet ("Pet3");
 		
 		underTest.addPetToShelter(dragon2);
 		underTest.addPetToShelter(dragon3);
 		
-		List<VirtualPet> addedPets = underTest.retrievePetList();
+		Collection<VirtualPet> addedPets = underTest.retrievePetList();
 		
 		assertThat(addedPets, containsInAnyOrder (dragon2, dragon3));
 		assertThat(addedPets, not(contains(dragon)));
 		
+	}
+	
+	@Test
+	public void shouldNotAddDuplicatePetNames() {
+		
+		underTest.addPetToShelter(dragon);
+		underTest.addPetToShelter(dragon);
+		
+		Collection<VirtualPet> petList = underTest.retrievePetList();
+		
+		assertThat(underTest.petList.size(), is(1));
+		
+	}
+	
+	@Test
+	public void shouldBeAbleToReturnPetByName() {
+		VirtualPet dragon2 = new VirtualPet("Pet2");
+		VirtualPet dragon3 = new VirtualPet ("Pet3");
+		
+		underTest.addPetToShelter(dragon);
+		underTest.addPetToShelter(dragon2);		
+		underTest.addPetToShelter(dragon3);
+		
+		VirtualPet retrievedVirtualPet = underTest.retrieveVirtualpet("Puff");
+		assertThat(retrievedVirtualPet, is(dragon));
+
+		VirtualPet retrievedVirtualPet2 = underTest.retrieveVirtualpet("Pet2");
+		assertThat(retrievedVirtualPet2, is(dragon2));
 		
 	}
 	

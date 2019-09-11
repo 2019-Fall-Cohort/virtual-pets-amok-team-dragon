@@ -112,7 +112,7 @@ public class VirtualPet {
 			magic =maxValue;
 		}
 	}
-	public void displayMenu() {
+	public void displayPetAttributes() {
 		
 		System.out.println("");
 		System.out.println("Current attributes for: " + name);
@@ -134,5 +134,11 @@ public class VirtualPet {
 		Random rand = new Random();
 		int randomNum = rand.nextInt(newMaxValue);
 		return randomNum;
+	}
+	
+	@Override
+	public String toString()
+	{
+	    return name; 
 	}
 }
