@@ -135,4 +135,10 @@ public class VirtualPet {
 		int randomNum = rand.nextInt(newMaxValue);
 		return randomNum;
 	}
+	
+	@Override
+	public String toString()
+	{
+	    return name; 
+	}
 }
