@@ -23,29 +23,25 @@ public class VirtualPetApp {
 				System.out.println("What would you like to name your pet");
 				String petName = userInput.nextLine();
 				VirtualPet pet = new VirtualPet(petName);
-				
-				
-				
-				
-				petShelter.addPetToShelter(petName, pet);
+				petShelter.addPetToShelter(pet);
 				break;
 			case 2:
 				petShelter.retrievePetList();
 				break;
-//			case 3:
-//				System.out.println("Which pet do you want to interact with?");
-//				String thisPet = userInput.nextLine();
-//		while (true) {
-//		
-//			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
-//			String response = userInput.nextLine().trim().toLowerCase();			
-//			determineUserResponse(response, pet);				
-//			
-//			
-//		pet.tick();
-//			pet.displayMenu();
-//				
-//		} 
+			case 3:
+				System.out.println("Which pet do you want to interact with?");
+				String thisPet = userInput.nextLine();
+		while (true) {
+		
+			System.out.println("What would you like to do? (Feed, Rest, Play, Fire, or Quit)");
+			String response = userInput.nextLine().trim().toLowerCase();			
+			determineUserResponse(response, pet);				
+			
+			
+		pet.tick();
+			pet.displayMenu();
+				
+		} 
 				
 				
 				
