@@ -6,7 +6,7 @@ public class VirtualPet {
 	
 	// Constants
 	static int minValue = 0;
-	static int maxValue = 10;	
+	static int maxValue = 100;	
 	
 	// Pet Attributes
 	private String name;
@@ -32,7 +32,9 @@ public class VirtualPet {
 	public int getHunger() {
 		return hunger;
 	}
-	
+	public void setHunger(int amountFed) {
+		hunger= hunger-amountFed;
+	}
 	public int getFatigue() {
 		return fatigue;
 	}
