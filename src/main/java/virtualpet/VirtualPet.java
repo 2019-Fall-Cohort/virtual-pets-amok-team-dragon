@@ -6,7 +6,7 @@ public class VirtualPet {
 	
 	// Constants
 	static int minValue = 0;
-	static int maxValue = 10;	
+	static int maxValue = 100;	
 	
 	// Pet Attributes
 	private String name;

@@ -1,5 +1,6 @@
 package virtualpet;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -57,16 +58,61 @@ public class VirtualPetApp {
 				System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
 				String response = userInput.nextLine().trim().toLowerCase();
 				determineUserResponse(response, selectedVirtualPet);
-				selectedVirtualPet.displayPetAttributes();
 			}
 			
 			break;
 			
 		case 4:
 			// Interact with all pets.
+			int amount = 0;
+			stayInMenu = true;
 			
-			System.out.println("Do you want to feed, rest, play, or breath fire? (or quit?)");
-			String response = userInput.nextLine().trim().toLowerCase();
+			while (stayInMenu) {
+				System.out.println("Do you want to feed, rest, play, or breath fire? (or quit?)");
+				String response = userInput.nextLine().trim().toLowerCase();
+				switch (response) {
+				case "feed":
+					System.out.println("How much do you want to feed pets?");
+					amount = userInput.nextInt();
+					userInput.nextLine();
+					petShelter.feedAllPets(amount);
+					petShelter.tickAllPets();
+					break;
+
+				case "rest":
+					System.out.println("How much do you want to rest pets?");
+					amount = userInput.nextInt();
+					userInput.nextLine();
+					petShelter.restAllPets(amount);
+					petShelter.tickAllPets();
+					break;
+
+				case "play":
+					System.out.println("How much play time do you want to have with pets?");
+					amount = userInput.nextInt();
+					userInput.nextLine();
+					petShelter.playWithAllPets(amount);
+					petShelter.tickAllPets();
+					break;
+
+				case "fire":
+					System.out.println("How long should pets breath fire?");
+					amount = userInput.nextInt();
+					userInput.nextLine();
+					petShelter.doMagicWithAllPets(amount);
+					petShelter.tickAllPets();
+					break;
+
+				case "back":
+					stayInMenu = false;
+					break;
+
+				default:
+					System.out.println("You so silly!");
+				}
+
+				
+			}
 			
 			break;
 		
@@ -93,6 +139,7 @@ public class VirtualPetApp {
 	private static void determineUserResponse(String response, VirtualPet selectedVirtualPet) {
 
 		int amount = 0; // amount+1 is below to counter the tick.
+		petShelter.tickAllPets();
 		switch (response) {
 		case "feed":
 			System.out.println("How much do you want to feed " + selectedVirtualPet.getName() + "?");
@@ -123,7 +170,6 @@ public class VirtualPetApp {
 			break;
 
 		case "back":
-			displayMainMenu();
 			stayInMenu = false;
 			break;
 
@@ -132,11 +178,8 @@ public class VirtualPetApp {
 		}
 
 	}
-public void tickPets(VirtualPetShelter tickingShelter) {
-//	Iterator it = tickingShelter.entrySet().iterator();
-//	while(it.hasNext()) {
-//		VirtualPetShelter.Entry pair =(VirtualPetShelter.Entry)it.next();
-		for (petShelter.PetList.Entry)
-	}
+
+	
 }
-}
+
+
