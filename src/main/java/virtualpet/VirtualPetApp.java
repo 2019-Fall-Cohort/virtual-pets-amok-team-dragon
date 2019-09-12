@@ -1,5 +1,6 @@
 package virtualpet;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class VirtualPetApp {
@@ -131,5 +132,11 @@ public class VirtualPetApp {
 		}
 
 	}
-
+public void tickPets(VirtualPetShelter tickingShelter) {
+//	Iterator it = tickingShelter.entrySet().iterator();
+//	while(it.hasNext()) {
+//		VirtualPetShelter.Entry pair =(VirtualPetShelter.Entry)it.next();
+		for (petShelter.PetList.Entry)
+	}
+}
 }

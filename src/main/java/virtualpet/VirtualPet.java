@@ -32,7 +32,9 @@ public class VirtualPet {
 	public int getHunger() {
 		return hunger;
 	}
-	
+	public void setHunger(int amountFed) {
+		hunger= hunger-amountFed;
+	}
 	public int getFatigue() {
 		return fatigue;
 	}
