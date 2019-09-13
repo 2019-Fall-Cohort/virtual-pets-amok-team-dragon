@@ -8,10 +8,10 @@ import org.junit.Test;
 public class VirtualPetTest {
 
 	
-	private VirtualPet underTest;
+	private Dragon underTest;
 	@Before
 	public void setup() {
-		underTest = new VirtualPet("Puff");		
+		underTest = new Dragon("Puff");		
 	}
 
 

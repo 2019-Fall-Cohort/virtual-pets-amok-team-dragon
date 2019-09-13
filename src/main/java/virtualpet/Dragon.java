@@ -1,22 +1,21 @@
 package virtualpet;
-
 import java.util.Random;
 
-public class VirtualPet {
+public class Dragon {
 	
 	// Constants
 	static int minValue = 0;
 	static int maxValue = 100;	
 	
 	// Pet Attributes
-	private String name;
+	private String name; 
 	private int hunger;
 	private int fatigue;
 	private int magic;  
 	private int boredom;
 	private int tickValue;
 	
-	public VirtualPet(String givenName) {
+	public Dragon(String givenName) {
 		//Parking Lot:  set defaults with a random number generator
 		name = givenName;
 		hunger = 10;

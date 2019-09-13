@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class VirtualPetApp {
 
-	static VirtualPetShelter petShelter = new VirtualPetShelter();
+	static DragonCave petShelter = new DragonCave();
 	private static Scanner userInput = new Scanner(System.in);
 
 	static boolean stayInMenu = true;
@@ -57,7 +57,7 @@ public class VirtualPetApp {
 	private static void addANewPet() {
 		System.out.println("What would you like to name your pet?");
 		String petName = userInput.nextLine();
-		VirtualPet pet = new VirtualPet(petName);
+		Dragon pet = new Dragon(petName);
 		petShelter.addPetToShelter(pet);
 	}
 
@@ -65,7 +65,7 @@ public class VirtualPetApp {
 		System.out.println("Which pet would you like to interact with?");
 		System.out.println(petShelter.retrievePetList());
 		String selectedPetName = userInput.nextLine();
-		VirtualPet selectedVirtualPet = petShelter.retrieveVirtualpet(selectedPetName);
+		Dragon selectedVirtualPet = petShelter.retrieveVirtualpet(selectedPetName);
 
 		stayInMenu = true;
 		while (stayInMenu) {
@@ -142,7 +142,7 @@ public class VirtualPetApp {
 
 	}
 
-	private static void determineUserResponse(String response, VirtualPet selectedVirtualPet) {
+	private static void determineUserResponse(String response, Dragon selectedVirtualPet) {
 
 		int amount = 0; // amount+1 is below to counter the tick.
 		switch (response) {
