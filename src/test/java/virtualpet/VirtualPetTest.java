@@ -64,10 +64,10 @@ public class VirtualPetTest {
 			int fatigue = underTest.getFatigue();
 			int boredom = underTest.getBoredom();
 			int magic = underTest.getMagic();
-			assertEquals(hunger, 10);
-			assertEquals(fatigue, 10);
-			assertEquals(boredom, 10);
-			assertEquals(magic, 10);
+			assertEquals(hunger, 11);
+			assertEquals(fatigue, 11);
+			assertEquals(boredom, 11);
+			assertEquals(magic, 11);
 			
 		}
 	

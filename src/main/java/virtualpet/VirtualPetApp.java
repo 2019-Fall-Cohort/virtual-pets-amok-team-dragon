@@ -15,14 +15,10 @@ public class VirtualPetApp {
 
 		System.out.println("Welcome to Pet Shelter!");
 		System.out.println("");
-
 		stayInMenu = true;
-
 		while (true) {
-
 			displayMainMenu();
 			determineMainMenuAction();
-
 		}
 
 	}
@@ -32,88 +28,21 @@ public class VirtualPetApp {
 		userInput.nextLine();
 
 		switch (userSelection) {
-
 		case 1:
-			System.out.println("What would you like to name your pet?");
-			String petName = userInput.nextLine();
-			VirtualPet pet = new VirtualPet(petName);
-			petShelter.addPetToShelter(pet);
+			addANewPet();
 			break;
 
 		case 2:
-			petShelter.displayAllPetAttributes();
+			displayAllPetAttributes();
+			petShelter.retrieveAllPetAttributes();
 			break;
 
 		case 3:
-			System.out.println("Which pet would you like to interact with?");
-			System.out.println(petShelter.retrievePetList());
-			String selectedPetName = userInput.nextLine();
-			VirtualPet selectedVirtualPet = petShelter.retrieveVirtualpet(selectedPetName);
-
-			stayInMenu = true;
-			while (stayInMenu) {
-				selectedVirtualPet.displayPetAttributes();
-				System.out.println("");
-				System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
-				String response = userInput.nextLine().trim().toLowerCase();
-				determineUserResponse(response, selectedVirtualPet);
-			}
-
+			interactWithOnePet();
 			break;
 
 		case 4:
-			// Interact with all pets.
-			int amount = 0;
-			stayInMenu = true;
-
-			while (stayInMenu) {
-				petShelter.displayAllPetAttributes();
-				System.out.println("");
-				System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
-				String response = userInput.nextLine().trim().toLowerCase();
-				switch (response) {
-				case "feed":
-					System.out.println("How much do you want to feed pets?");
-					amount = userInput.nextInt();
-					userInput.nextLine();
-					petShelter.feedAllPets(amount);
-					petShelter.tickAllPets();
-					break;
-
-				case "rest":
-					System.out.println("How much do you want to rest pets?");
-					amount = userInput.nextInt();
-					userInput.nextLine();
-					petShelter.restAllPets(amount);
-					petShelter.tickAllPets();
-					break;
-
-				case "play":
-					System.out.println("How much play time do you want to have with pets?");
-					amount = userInput.nextInt();
-					userInput.nextLine();
-					petShelter.playWithAllPets(amount);
-					petShelter.tickAllPets();
-					break;
-
-				case "fire":
-					System.out.println("How long should pets breath fire?");
-					amount = userInput.nextInt();
-					userInput.nextLine();
-					petShelter.doMagicWithAllPets(amount);
-					petShelter.tickAllPets();
-					break;
-
-				case "back":
-					stayInMenu = false;
-					break;
-
-				default:
-					System.out.println("You so silly!");
-				}
-
-			}
-
+			interactWithAllPets();
 			break;
 
 		case 5:
@@ -123,6 +52,83 @@ public class VirtualPetApp {
 
 		}
 
+	}
+
+	private static void addANewPet() {
+		System.out.println("What would you like to name your pet?");
+		String petName = userInput.nextLine();
+		VirtualPet pet = new VirtualPet(petName);
+		petShelter.addPetToShelter(pet);
+	}
+
+	private static void interactWithOnePet() {
+		System.out.println("Which pet would you like to interact with?");
+		System.out.println(petShelter.retrievePetList());
+		String selectedPetName = userInput.nextLine();
+		VirtualPet selectedVirtualPet = petShelter.retrieveVirtualpet(selectedPetName);
+
+		stayInMenu = true;
+		while (stayInMenu) {
+			selectedVirtualPet.displayPetAttributes();
+			System.out.println("");
+			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
+			String response = userInput.nextLine().trim().toLowerCase();
+			determineUserResponse(response, selectedVirtualPet);
+		}		
+	}
+
+	private static void interactWithAllPets() {
+		int amount = 0;
+		stayInMenu = true;
+
+		while (stayInMenu) {
+			petShelter.retrieveAllPetAttributes();
+			System.out.println("");
+			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
+			String response = userInput.nextLine().trim().toLowerCase();
+			switch (response) {
+			case "feed":
+				System.out.println("How much do you want to feed pets?");
+				amount = userInput.nextInt();
+				userInput.nextLine();
+				petShelter.feedAllPets(amount);
+				petShelter.tickAllPets();
+				break;
+
+			case "rest":
+				System.out.println("How much do you want to rest pets?");
+				amount = userInput.nextInt();
+				userInput.nextLine();
+				petShelter.restAllPets(amount);
+				petShelter.tickAllPets();
+				break;
+
+			case "play":
+				System.out.println("How much play time do you want to have with pets?");
+				amount = userInput.nextInt();
+				userInput.nextLine();
+				petShelter.playWithAllPets(amount);
+				petShelter.tickAllPets();
+				break;
+
+			case "fire":
+				System.out.println("How long should pets breath fire?");
+				amount = userInput.nextInt();
+				userInput.nextLine();
+				petShelter.doMagicWithAllPets(amount);
+				petShelter.tickAllPets();
+				break;
+
+			case "back":
+				stayInMenu = false;
+				break;
+
+			default:
+				System.out.println("You so silly!");
+			}
+
+		}
+		
 	}
 
 	private static void displayMainMenu() {
@@ -182,4 +188,14 @@ public class VirtualPetApp {
 
 	}
 
+	private static void displayAllPetAttributes() {
+		System.out.print(String.format("|%-10s",  "Name"));
+		System.out.print(String.format("|%-10s",  "Hunger"));
+		System.out.print(String.format("|%-10s",  "Fatigue"));
+		System.out.print(String.format("|%-10s",  "Boredom"));
+		System.out.print(String.format("|%-10s|",  "Magic"));
+		System.out.println();
+		String[] retrievedAttributes = petShelter.retrieveAllPetAttributes();
+		
+	}
 }

@@ -17,6 +17,7 @@ public class VirtualPet {
 	private int tickValue;
 	
 	public VirtualPet(String givenName) {
+		//Parking Lot:  set defaults with a random number generator
 		name = givenName;
 		hunger = 10;
 		fatigue = 10;
@@ -28,7 +29,6 @@ public class VirtualPet {
 	public String getName() {
 		return name;
 	}
-	
 	public int getHunger() {
 		return hunger;
 	}
@@ -38,15 +38,12 @@ public class VirtualPet {
 	public int getFatigue() {
 		return fatigue;
 	}
-	
 	public int getMagic() {
 		return magic;
 	}
-	
 	public int getBoredom() {
 		return boredom;
 	}
-
 	public int feedDragon(int amountFed) {
 		amountFed = amountFed + tickValue;
 		hunger = hunger - amountFed;
@@ -58,7 +55,6 @@ public class VirtualPet {
 		}
 		return hunger;
 	}
-
 	public int restDragon(int amountRested) {
 		amountRested = amountRested + tickValue;
 		fatigue = fatigue - amountRested;
@@ -70,7 +66,6 @@ public class VirtualPet {
 		}
 		return fatigue;
 	}
-
 	public int playWithDragon(int timePlayed) {
 		timePlayed = timePlayed + tickValue;
 		boredom = boredom - timePlayed;
@@ -83,7 +78,6 @@ public class VirtualPet {
 			
 		return boredom;
 	}
-
 	public int breathsFire(int breathFire) {
 		breathFire = breathFire + tickValue;
 		magic = magic - breathFire;
@@ -95,7 +89,6 @@ public class VirtualPet {
 		}
 		return magic;
 	}
-
 	public void tick() {
 		hunger = hunger + tickValue;
 		fatigue = fatigue + tickValue;
@@ -125,19 +118,16 @@ public class VirtualPet {
 		System.out.println("");
 				
 	}
-	
 	public int newValue(){
 		Random rand = new Random();
 		int randomNum = rand.nextInt((maxValue - minValue) + 1) + minValue;
 		return randomNum;
 	}
-	
 	public int newValue(int newMaxValue){
 		Random rand = new Random();
 		int randomNum = rand.nextInt(newMaxValue);
 		return randomNum;
 	}
-	
 	@Override
 	public String toString()
 	{
