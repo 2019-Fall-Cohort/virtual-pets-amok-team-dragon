@@ -53,12 +53,12 @@ public class DragonCave {
 		
 	}
 
-	public void doMagicWithAllPets(int breathFire) {
-		for (Dragon pet: petList.values()) {
-			pet.breathsFire(breathFire);
-		}
-		
-	}
+//	public void doMagicWithAllPets(int breathFire) {
+//		for (Dragon pet: petList.values()) {
+//			pet.breathsFire(breathFire);
+//		}
+//		
+//	}
 	
 	public String[] retrieveAllPetAttributes() {
 		
