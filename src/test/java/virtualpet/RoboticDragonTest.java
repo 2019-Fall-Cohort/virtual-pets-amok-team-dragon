@@ -21,6 +21,21 @@ public class RoboticDragonTest {
 	assertThat(expected, is("Test Dragon"));
 	
 	}
+	
+	@Test
+	public void shouldBeAbleToFeedPet() {
+		RoboticDragon underTest = new RoboticDragon("Test Dragon");
+		underTest.feedDragon(2);
+		int expected = underTest.getOil();
+		assertEquals(expected, 12);
+	}
+	@Test
+	public void shouldBeAbleToChargeBattery() {
+		RoboticDragon underTest = new RoboticDragon("Test Dragon");
+		underTest.restDragon(95);
+		int expected = underTest.getBattery();
+		assertEquals(expected, 100);
+	}
 }
 
 

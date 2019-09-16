@@ -13,9 +13,24 @@ import org.junit.Test;
 public class OrganicDragonTest {
 	@Test
 	public void shouldBeAbleToCreateOrganicDragon() {
+
+		Dragon underTest = new OrganicDragon("Test Dragon");
+		String expected = underTest.getName();
+		assertThat(expected, is("Test Dragon"));
+	}
 	
-	Dragon underTest = new OrganicDragon("Test Dragon");
-	String expected = underTest.getName();
-	assertThat(expected, is("Test Dragon"));
-}
+	@Test
+	public void shouldBeAbleToFeedPet() {
+		OrganicDragon underTest = new OrganicDragon("Test Dragon");
+		underTest.feedDragon(2);
+		int expected = underTest.getHunger();
+		assertEquals(expected, 8);
+	}
+	@Test
+	public void shouldBeAbleToSleep() {
+		OrganicDragon underTest = new OrganicDragon("Test Dragon");
+		underTest.restDragon(7);
+		int expected = underTest.getFatigue();
+		assertEquals(expected, 3);
+	}
 }

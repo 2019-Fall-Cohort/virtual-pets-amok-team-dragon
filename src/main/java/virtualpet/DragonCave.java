@@ -27,17 +27,17 @@ public class DragonCave {
 
 	public void tickAllPets() {
 		for (Dragon pet: petList.values()) {
-			pet.tick();
+//			pet.tick();
 		}
 		
 	}
 
-	public void feedAllPets(int amountFed) {
-		for (Dragon pet: petList.values()) {
-			pet.feedDragon(amountFed);
-		}
-		
-	}
+//	public void feedAllPets(int amountFed) {
+//		for (Dragon pet: petList.values()) {
+//			pet.feedDragon(amountFed);
+//		}
+//		
+//	}
 
 	public void playWithAllPets(int timePlayed) {
 		for (Dragon pet: petList.values()) {
@@ -68,8 +68,8 @@ public class DragonCave {
 		for (Dragon pet: petList.values()) {
 			
 			arrayRow = (String.format("|%-10s",  pet.getName())) +
-					(String.format("|%-10d",  pet.getHunger())) +
-					(String.format("|%-10d",  pet.getFatigue())) +
+//					(String.format("|%-10d",  pet.getHunger())) +
+//					(String.format("|%-10d",  pet.getFatigue())) +
 					(String.format("|%-10d",  pet.getBoredom())) +
 					(String.format("|%-10d|",  pet.getMagic()));
 		}
