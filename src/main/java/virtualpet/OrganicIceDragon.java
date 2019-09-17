@@ -7,7 +7,7 @@ public class OrganicIceDragon extends OrganicDragon implements BlowsBitterWind{
 	}
 
 	@Override
-	public void blowBitterWind() {
-		//wicked cold draft, man.
+	public void blowBitterWind(int amount) {
+		setMagic(getMagic()-amount);
 	}
 }

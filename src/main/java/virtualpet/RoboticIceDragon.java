@@ -8,7 +8,7 @@ public class RoboticIceDragon extends RoboticDragon implements BlowsBitterWind{
 	}
 	
 	@Override
-	public void blowBitterWind() {
-		//bitter blowing
+	public void blowBitterWind(int amount) {
+	setMagic(getMagic()-amount);
 	}
 }

@@ -1,5 +1,5 @@
 package virtualpet;
 
 public interface BlowsBitterWind {
-	public void blowBitterWind();
+	public void blowBitterWind(int amount);
 }
