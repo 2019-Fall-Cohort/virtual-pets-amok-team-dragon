@@ -8,6 +8,7 @@ public class VirtualPetApp {
 
 	static DragonCave petShelter = new DragonCave();
 	private static Scanner userInput = new Scanner(System.in);
+	
 
 	static boolean stayInMenu = true;
 
@@ -57,7 +58,7 @@ public class VirtualPetApp {
 	private static void addANewPet() {
 		System.out.println("What would you like to name your pet?");
 		String petName = userInput.nextLine();
-		Dragon pet = new Dragon(petName);
+		Dragon pet = new OrganicDragon(petName);
 		petShelter.addPetToShelter(pet);
 	}
 
@@ -91,16 +92,16 @@ public class VirtualPetApp {
 				System.out.println("How much do you want to feed pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				petShelter.feedAllPets(amount);
-				petShelter.tickAllPets();
+//				petShelter.feedAllPets(amount);
+//				petShelter.tickAllPets();
 				break;
 
 			case "rest":
 				System.out.println("How much do you want to rest pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				petShelter.restAllPets(amount);
-				petShelter.tickAllPets();
+//				petShelter.restAllPets(amount);
+//				petShelter.tickAllPets();
 				break;
 
 			case "play":
@@ -108,15 +109,15 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.playWithAllPets(amount);
-				petShelter.tickAllPets();
+//				petShelter.tickAllPets();
 				break;
 
 			case "fire":
 				System.out.println("How long should pets breath fire?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				petShelter.doMagicWithAllPets(amount);
-				petShelter.tickAllPets();
+//				petShelter.doMagicWithAllPets(amount);
+//				petShelter.tickAllPets();
 				break;
 
 			case "back":
@@ -151,7 +152,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			selectedVirtualPet.feedDragon(amount);
-			petShelter.tickAllPets();
+//			petShelter.tickAllPets();
 			break;
 
 		case "rest":
@@ -159,7 +160,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			selectedVirtualPet.restDragon(amount);
-			petShelter.tickAllPets();
+//			petShelter.tickAllPets();
 			break;
 
 		case "play":
@@ -167,15 +168,15 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			selectedVirtualPet.playWithDragon(amount);
-			petShelter.tickAllPets();
+//			petShelter.tickAllPets();
 			break;
 
 		case "fire":
 			System.out.println("How long should " + selectedVirtualPet.getName() + " breath fire?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			selectedVirtualPet.breathsFire(amount);
-			petShelter.tickAllPets();
+//			selectedVirtualPet.breathsFire(amount);
+//			petShelter.tickAllPets();
 			break;
 
 		case "back":
