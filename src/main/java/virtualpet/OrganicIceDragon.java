@@ -1,6 +1,7 @@
 package virtualpet;
 
 public class OrganicIceDragon extends OrganicDragon implements BlowsBitterWind{
+	
 
 	public OrganicIceDragon(String givenName) {
 		super(givenName);
@@ -9,5 +10,6 @@ public class OrganicIceDragon extends OrganicDragon implements BlowsBitterWind{
 	@Override
 	public void blowBitterWind(int amount) {
 		setMagic(getMagic()-amount);
+//		setAsh( )
 	}
 }

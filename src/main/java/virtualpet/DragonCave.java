@@ -6,11 +6,15 @@ import java.util.HashMap;
 public class DragonCave {
 
 	HashMap<String, Dragon> petList;
+	int ashBuildUp = 10;
+	int icicleBuildUp = 10;
 
 	public DragonCave() {
 		petList = new HashMap<>();
+		
 
 	}
+	
 	
 	public void addPetToShelter(Dragon petToAdd) {
 		petList.put(petToAdd.getName(), petToAdd);
@@ -76,5 +80,22 @@ public class DragonCave {
 		System.out.println(arrayRow);
 		return allPetAttributes;
 	}
+
+
+	public int getAsh() {
+		return ashBuildUp;
+	}
+	public void setAsh(int amount) {
+		this.ashBuildUp = amount;
+	}
+
+
+	public void doMagic(OrganicIceDragon dragon) {
+		dragon.blowBitterWind(2);
+		setAsh(8);
+		
+		
+	}
+	
 	
 }

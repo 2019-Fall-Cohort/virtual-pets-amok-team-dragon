@@ -61,5 +61,16 @@ public void shouldBeAbleToAddOrganicAndRobiticDragons() {
 		assertThat(underTestRobotic.getBoredom(), is(6));
 		assertThat(underTestOrganic.getBoredom(), is(6));	
 }
+	@Test
+	public void shouldBeAbleToClearAsh () {
+		OrganicIceDragon underTestOrganicIce = new OrganicIceDragon ("TestFrosty");
+		DragonCave underTestCave= new DragonCave();
+		underTestCave.addPetToShelter(underTestOrganicIce);
+		
+		underTestCave.doMagic(underTestOrganicIce);
+		int expected = underTestCave.getAsh();
+		assertThat(expected, is (8));
+		
+	}
 
 }
