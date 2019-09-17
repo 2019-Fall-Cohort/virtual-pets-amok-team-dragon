@@ -15,4 +15,11 @@ public class RoboticFireDragonTest {
 		assertThat(expectedName, is("Test Dragon"));
 	}
 
+	@Test
+	public void shouldBeAbleToBreathFire() throws Exception {
+		RoboticFireDragon underTest = new RoboticFireDragon("Test Dragon");
+		underTest.breathFire(4);
+		int expected = underTest.getMagic();
+		assertEquals(expected, 6);
+}
 }

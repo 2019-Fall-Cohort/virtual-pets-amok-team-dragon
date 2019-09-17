@@ -33,4 +33,5 @@ public class OrganicDragonTest {
 		int expected = underTest.getFatigue();
 		assertEquals(expected, 3);
 	}
+
 }

@@ -23,6 +23,10 @@ public abstract class Dragon {
 		return name;
 	}
 
+	public void setMagic(int magic) {
+		this.magic = magic;
+	}
+	
 	public int getMagic() {
 		return magic;
 	}
@@ -31,7 +35,7 @@ public abstract class Dragon {
 		return boredom;
 	}	
 	
-	private void setBoredom(int boredom) {
+	public void setBoredom(int boredom) {
 		this.boredom = boredom;
 	}
 

@@ -15,6 +15,12 @@ public class OrganicFireDragonTest {
 		assertThat(expectedName, is("Test Dragon"));
 	}
 	
-	
+	@Test
+	public void shouldBeAbleToBreathFire() throws Exception {
+		OrganicFireDragon underTest = new OrganicFireDragon("Test Dragon");
+		underTest.breathFire(2);
+		int expected = underTest.getMagic();
+		assertEquals(expected, 8);
+	}
 
 }
