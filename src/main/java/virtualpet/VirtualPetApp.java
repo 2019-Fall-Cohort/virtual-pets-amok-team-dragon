@@ -34,7 +34,6 @@ public class VirtualPetApp {
 
 		case 2:
 			displayAllDragonAttributes();
-			//petShelter.retrieveAllPetAttributes();
 			break;
 
 		case 3:
@@ -87,15 +86,30 @@ public class VirtualPetApp {
 		System.out.println("Which pet would you like to interact with?");
 		System.out.println(petShelter.retrievePetList());
 		String selectedPetName = userInput.nextLine();
-		Dragon selectedVirtualPet = petShelter.retrieveVirtualpet(selectedPetName);
+		Dragon selectedVirtualPet = petShelter.retrieveVirtualPet(selectedPetName);
 
 		stayInMenu = true;
-		while (stayInMenu) {
-			selectedVirtualPet.displayPetAttributes();
-			System.out.println("");
-			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
-			String response = userInput.nextLine().trim().toLowerCase();
-			determineUserResponse(response, selectedVirtualPet);
+		if (selectedVirtualPet instanceof OrganicDragon) {
+			OrganicDragon dragon = (OrganicDragon) selectedVirtualPet;
+			while (stayInMenu) {
+				dragon.displayOrganicAttributes();
+				System.out.println("");
+				System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
+				String response = userInput.nextLine().trim().toLowerCase();
+				determineUserResponse(response, selectedVirtualPet);
+			}
+
+		} else if (selectedVirtualPet instanceof RoboticDragon) {
+			RoboticDragon dragon = (RoboticDragon) selectedVirtualPet;
+			while (stayInMenu) {
+				dragon.displayRoboticAttributes();
+//				System.out.println("");
+//				System.out.println("What would you like to do?  Oil, Rest, Play, Fire, or Back?");
+//				String response = userInput.nextLine().trim().toLowerCase();
+//				determineUserResponse(response, selectedVirtualPet);
+			}
+		} else {
+			System.out.println("Something is wrong... fix it, BUM!");
 		}
 	}
 
@@ -113,7 +127,7 @@ public class VirtualPetApp {
 				System.out.println("How much do you want to feed pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				//petShelter.feedAllPets(amount);
+				// petShelter.feedAllPets(amount);
 				petShelter.tickAllPets();
 				break;
 
@@ -137,7 +151,7 @@ public class VirtualPetApp {
 				System.out.println("How long should pets breath fire?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				//petShelter.doMagicWithAllPets(amount);
+				// petShelter.doMagicWithAllPets(amount);
 				petShelter.tickAllPets();
 				break;
 
@@ -196,7 +210,7 @@ public class VirtualPetApp {
 			System.out.println("How long should " + selectedVirtualPet.getName() + " breath fire?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			//selectedVirtualPet.breathsFire(amount);
+			// selectedVirtualPet.breathsFire(amount);
 			petShelter.tickAllPets();
 			break;
 
@@ -210,7 +224,7 @@ public class VirtualPetApp {
 
 	}
 
-	private static void displayAllDragonAttributes() {		
+	private static void displayAllDragonAttributes() {
 		System.out.println("All Dragons:");
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Element"));
@@ -221,7 +235,7 @@ public class VirtualPetApp {
 		System.out.println();
 		petShelter.retrieveOrganicPetAttributes();
 		System.out.println();
-		
+
 		System.out.println("Robotic Dragons:");
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Element"));

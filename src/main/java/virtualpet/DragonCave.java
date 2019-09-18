@@ -23,7 +23,7 @@ public class DragonCave {
 		return petList.values();
 	}
 
-	public Dragon retrieveVirtualpet(String petName) {
+	public Dragon retrieveVirtualPet(String petName) {
 		return petList.get(petName);
 	}
 

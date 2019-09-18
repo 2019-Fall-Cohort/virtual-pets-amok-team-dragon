@@ -42,10 +42,10 @@ public class DragonCaveTest {
 		DragonCave underTestCave = new DragonCave();
 		underTestCave.addPetToShelter(underTestRobotic);
 		underTestCave.addPetToShelter(underTestOrganic);
-		Dragon retrieved = underTestCave.retrieveVirtualpet("TestOrganic");
+		Dragon retrieved = underTestCave.retrieveVirtualPet("TestOrganic");
 		assertThat(retrieved, is(underTestOrganic));
 
-		Dragon retrievedVirtualPet2 = underTestCave.retrieveVirtualpet("TestRobotic");
+		Dragon retrievedVirtualPet2 = underTestCave.retrieveVirtualPet("TestRobotic");
 		assertThat(retrievedVirtualPet2, is(underTestRobotic));
 	}
 

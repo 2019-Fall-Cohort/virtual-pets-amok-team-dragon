@@ -49,18 +49,6 @@ public abstract class Dragon {
 		}
 	}
 
-	public void displayPetAttributes() {
-
-		System.out.println("");
-		System.out.println("Current attributes for: " + name);
-//		System.out.println("Hunger: " + hunger);
-//		System.out.println("Fatigue: " + fatigue);
-		System.out.println("Boredom: " + boredom);
-		System.out.println("Magic: " + magic);
-		System.out.println("");
-
-	}
-
 	public int newValue() {
 		Random rand = new Random();
 		int randomNum = rand.nextInt((maxValue - minValue) + 1) + minValue;
