@@ -33,7 +33,7 @@ public class VirtualPetApp {
 			break;
 
 		case 2:
-			displayAllPetAttributes();
+			displayAllOrganicPetAttributes();
 			petShelter.retrieveAllPetAttributes();
 			break;
 
@@ -62,27 +62,28 @@ public class VirtualPetApp {
 		System.out.println("Do you want " + petName + " to be a fire or ice dragon?");
 		String attributeOfDragon = userInput.nextLine().trim().toLowerCase();
 
-		if (choiceOfDragon == "organic") {
-			if (attributeOfDragon == "fire") {
+		if (choiceOfDragon.equals("organic")) {
+			if (attributeOfDragon.equals("fire")) {
 				OrganicFireDragon pet = new OrganicFireDragon(petName);
 				petShelter.addPetToShelter(pet);
+				System.out.println(pet.getName());
+				System.out.println(pet.getClass());
+
 			} else {
 				OrganicIceDragon pet = new OrganicIceDragon(petName);
 				petShelter.addPetToShelter(pet);
 			}
 		} else {
-			if (attributeOfDragon == "fire") {
+			if (attributeOfDragon.equals("fire")) {
 				RoboticFireDragon pet = new RoboticFireDragon(petName);
 				petShelter.addPetToShelter(pet);
 			} else {
 				RoboticIceDragon pet = new RoboticIceDragon(petName);
 				petShelter.addPetToShelter(pet);
+			}
 		}
-	}
 
 	}
-
-	
 
 	private static void interactWithOnePet() {
 		System.out.println("Which pet would you like to interact with?");
@@ -114,7 +115,7 @@ public class VirtualPetApp {
 				System.out.println("How much do you want to feed pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				petShelter.feedAllPets(amount);
+				//petShelter.feedAllPets(amount);
 				petShelter.tickAllPets();
 				break;
 
@@ -138,7 +139,7 @@ public class VirtualPetApp {
 				System.out.println("How long should pets breath fire?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				petShelter.doMagicWithAllPets(amount);
+				//petShelter.doMagicWithAllPets(amount);
 				petShelter.tickAllPets();
 				break;
 
@@ -197,7 +198,7 @@ public class VirtualPetApp {
 			System.out.println("How long should " + selectedVirtualPet.getName() + " breath fire?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			selectedVirtualPet.breathsFire(amount);
+			//selectedVirtualPet.breathsFire(amount);
 			petShelter.tickAllPets();
 			break;
 
@@ -211,7 +212,7 @@ public class VirtualPetApp {
 
 	}
 
-	private static void displayAllPetAttributes() {
+	private static void displayAllOrganicPetAttributes() {
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Hunger"));
 		System.out.print(String.format("|%-10s", "Fatigue"));

@@ -60,8 +60,8 @@ public class DragonCave {
 						+ (String.format("|%-10d", organicDragon.getFatigue())) + (String.format("|%-10d", organicDragon.getBoredom()))
 						+ (String.format("|%-10d|", organicDragon.getMagic()));
 			}
+			System.out.println(arrayRow);
 		}
-		System.out.println(arrayRow);
 		return allOrganicPetAttributes;
 	}
 
