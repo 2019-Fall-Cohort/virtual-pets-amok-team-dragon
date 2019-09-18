@@ -26,30 +26,28 @@ public abstract class Dragon {
 	public void setMagic(int magic) {
 		this.magic = magic;
 	}
-	
+
 	public int getMagic() {
 		return magic;
 	}
 
 	public int getBoredom() {
 		return boredom;
-	}	
-	
+	}
+
 	public void setBoredom(int boredom) {
 		this.boredom = boredom;
 	}
 
 	public void playWithDragon(int timePlayed) {
 		int newBoredomValue = boredom - timePlayed;
-		
+
 		if (attributeWithinRange(newBoredomValue)) {
 			setBoredom(newBoredomValue);
-		}	
-		else {
+		} else {
 			setBoredom(minValue);
-		}	
+		}
 	}
-
 
 //	public void tick() {
 //		hunger = hunger + tickValue;
@@ -100,7 +98,7 @@ public abstract class Dragon {
 	}
 
 	public abstract void restDragon(int amountRested);
-	
+
 	public abstract void feedDragon(int amountFed);
 
 	public boolean attributeWithinRange(int attribute) {
@@ -114,7 +112,7 @@ public abstract class Dragon {
 		if (attribute > maxValue) {
 			isWithinRange = false;
 		}
-		
+
 		return isWithinRange;
 	}
 

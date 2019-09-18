@@ -10,18 +10,16 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-
-
 public class RoboticDragonTest {
 	@Test
 	public void shouldBeAbleToCreateRoboticDragon() {
-	
-	Dragon underTest = new RoboticDragon("Test Dragon");
-	String expected = underTest.getName();
-	assertThat(expected, is("Test Dragon"));
-	
+
+		Dragon underTest = new RoboticDragon("Test Dragon");
+		String expected = underTest.getName();
+		assertThat(expected, is("Test Dragon"));
+
 	}
-	
+
 	@Test
 	public void shouldBeAbleToFeedPet() {
 		RoboticDragon underTest = new RoboticDragon("Test Dragon");
@@ -29,6 +27,7 @@ public class RoboticDragonTest {
 		int expected = underTest.getOil();
 		assertEquals(expected, 12);
 	}
+
 	@Test
 	public void shouldBeAbleToChargeBattery() {
 		RoboticDragon underTest = new RoboticDragon("Test Dragon");
@@ -37,5 +36,3 @@ public class RoboticDragonTest {
 		assertEquals(expected, 100);
 	}
 }
-
-

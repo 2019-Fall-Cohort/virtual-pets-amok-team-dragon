@@ -18,7 +18,7 @@ public class OrganicDragonTest {
 		String expected = underTest.getName();
 		assertThat(expected, is("Test Dragon"));
 	}
-	
+
 	@Test
 	public void shouldBeAbleToFeedPet() {
 		OrganicDragon underTest = new OrganicDragon("Test Dragon");
@@ -26,12 +26,13 @@ public class OrganicDragonTest {
 		int expected = underTest.getHunger();
 		assertEquals(expected, 8);
 	}
+
 	@Test
 	public void shouldBeAbleToSleep() {
 		OrganicDragon underTest = new OrganicDragon("Test Dragon");
-		underTest.restDragon(7);
+		underTest.restDragon(2);
 		int expected = underTest.getFatigue();
-		assertEquals(expected, 3);
+		assertEquals(expected, 8);
 	}
 
 }

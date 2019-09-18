@@ -21,5 +21,5 @@ public class RoboticFireDragonTest {
 		underTest.breathFire(4);
 		int expected = underTest.getMagic();
 		assertEquals(expected, 6);
-}
+	}
 }

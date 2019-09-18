@@ -28,8 +28,6 @@ public class DragonTest {
 		assertEquals(expected, 0);
 	}
 
-	
-
 //	@Test
 //	public void tickShouldHaveMethod() {
 //		underTest.tick();

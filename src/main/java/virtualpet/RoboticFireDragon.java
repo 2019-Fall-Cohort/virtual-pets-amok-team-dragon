@@ -1,6 +1,6 @@
 package virtualpet;
 
-public class RoboticFireDragon extends RoboticDragon implements BreathesFire{
+public class RoboticFireDragon extends RoboticDragon implements BreathesFire {
 
 	public RoboticFireDragon(String givenName) {
 		super(givenName);
@@ -9,6 +9,6 @@ public class RoboticFireDragon extends RoboticDragon implements BreathesFire{
 
 	@Override
 	public void breathFire(int amount) {
-		setMagic(getMagic()-amount);		
+		setMagic(getMagic() - amount);
 	}
 }

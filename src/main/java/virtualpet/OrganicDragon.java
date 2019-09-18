@@ -15,38 +15,28 @@ public class OrganicDragon extends Dragon {
 		return hunger;
 	}
 
-	private void setHunger(int amountFed) {
-		hunger = hunger - amountFed;
-	}
-
 	public int getFatigue() {
 		return fatigue;
 	}
 
-	private void setFatigue(int amountRested) {
-		fatigue = fatigue - amountRested;
+	public void restDragon(int amountRested) {
+		int newFatigueValue = fatigue - amountRested;
+
+		if (attributeWithinRange(newFatigueValue)) {
+			this.fatigue = newFatigueValue;
+		} else {
+			this.fatigue = minValue;
+		}
 	}
 
-	public void restDragon(int amountRested) {		
-		int newFatigueValue = fatigue - amountRested;
-		
-		if (attributeWithinRange(newFatigueValue)) {
-			setFatigue(newFatigueValue);
-		}	
-		else {
-			setFatigue(minValue);
-		}	
-	}
-	
 	public void feedDragon(int amountFed) {
 		int newHungerValue = hunger - amountFed;
-		
+
 		if (attributeWithinRange(newHungerValue)) {
-			setHunger(newHungerValue);
-		}	
-		else {
-			setHunger(minValue);
-		}			
+			this.hunger = newHungerValue;
+		} else {
+			this.hunger = minValue;
+		}
 	}
 
 }

@@ -69,7 +69,7 @@ public class DragonCaveTest {
 		DragonCave underTestCave = new DragonCave();
 		underTestCave.addPetToShelter(underTestOrganicIce);
 
-		underTestCave.doMagic(underTestOrganicIce,2);
+		underTestCave.doMagic(underTestOrganicIce, 2);
 		int expected = underTestCave.getAsh();
 		assertThat(expected, is(8));
 
@@ -81,10 +81,11 @@ public class DragonCaveTest {
 		DragonCave underTestCave = new DragonCave();
 		underTestCave.addPetToShelter(underTestRoboticIce);
 
-		underTestCave.doMagic(underTestRoboticIce,2);
+		underTestCave.doMagic(underTestRoboticIce, 2);
 		int expected = underTestCave.getAsh();
 		assertThat(expected, is(8));
 	}
+
 	@Test
 	public void shouldBeAbleToClearIcicles() {
 		RoboticFireDragon underTestRoboticFire = new RoboticFireDragon("TestFlamey");
@@ -92,8 +93,8 @@ public class DragonCaveTest {
 		DragonCave underTestCave = new DragonCave();
 		underTestCave.addPetToShelter(underTestRoboticFire);
 		underTestCave.addPetToShelter(underTestRoboticFire2);
-		underTestCave.doMagic(underTestRoboticFire,2);
-		underTestCave.doMagic(underTestRoboticFire2,2);
+		underTestCave.doMagic(underTestRoboticFire, 2);
+		underTestCave.doMagic(underTestRoboticFire2, 2);
 		int expected = underTestCave.getIcicles();
 		assertThat(expected, is(6));
 	}
