@@ -94,9 +94,9 @@ public class VirtualPetApp {
 			while (stayInMenu) {
 				dragon.displayOrganicAttributes();
 				System.out.println("");
-				System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
+				System.out.println("What would you like to do?  Feed, Rest, Play, Magic, or Back?");
 				String response = userInput.nextLine().trim().toLowerCase();
-				determineUserResponse(response, selectedVirtualPet);
+				determineUserResponseForOrganicDragon(response, dragon);
 			}
 
 		} else if (selectedVirtualPet instanceof RoboticDragon) {
@@ -178,40 +178,42 @@ public class VirtualPetApp {
 
 	}
 
-	private static void determineUserResponse(String response, Dragon selectedVirtualPet) {
+	private static void determineUserResponseForOrganicDragon(String response, OrganicDragon dragon) {
 
-		int amount = 0; // amount+1 is below to counter the tick.
+		int amount = 0; 
 		switch (response) {
 		case "feed":
-			System.out.println("How much do you want to feed " + selectedVirtualPet.getName() + "?");
+			System.out.println("How much do you want to feed " + dragon.getName() + "?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			selectedVirtualPet.feedDragon(amount);
-			petShelter.tickAllPets();
+			dragon.feedDragon(amount);
 			break;
 
 		case "rest":
-			System.out.println("How much do you want " + selectedVirtualPet.getName() + " to rest?");
+			System.out.println("How much do you want " + dragon.getName() + " to rest?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			selectedVirtualPet.restDragon(amount);
-			petShelter.tickAllPets();
+			dragon.restDragon(amount);
 			break;
 
 		case "play":
-			System.out.println("How much play time do you want " + selectedVirtualPet.getName() + " to have?");
+			System.out.println("How much play time do you want " + dragon.getName() + " to have?");
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			selectedVirtualPet.playWithDragon(amount);
-			petShelter.tickAllPets();
+			dragon.playWithDragon(amount);
 			break;
 
-		case "fire":
-			System.out.println("How long should " + selectedVirtualPet.getName() + " breath fire?");
+		case "magic":
+			if (dragon.getElement().equals("Fire")) {
+				System.out.println("How much fire should " + dragon.getName() + " breath?");
+			} else if (dragon.getElement().equals("Ice")) {
+				System.out.println("How much bitter wind should " + dragon.getName() + " blow?");
+			} else {
+				System.out.println("Something is wrong, FOOL!");
+			}
 			amount = userInput.nextInt();
 			userInput.nextLine();
-			// selectedVirtualPet.breathsFire(amount);
-			petShelter.tickAllPets();
+			petShelter.doMagic(dragon, amount);
 			break;
 
 		case "back":

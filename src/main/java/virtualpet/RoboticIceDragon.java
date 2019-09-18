@@ -9,6 +9,11 @@ public class RoboticIceDragon extends RoboticDragon implements BlowsBitterWind {
 
 	@Override
 	public void blowBitterWind(int amount) {
-		setMagic(getMagic() - amount);
+		int newMagicValue = this.getMagic() - amount;
+		if (this.attributeWithinRange(newMagicValue)) {
+			this.setMagic(newMagicValue);
+		} else {
+			this.setMagic(minValue);
+		}
 	}
 }

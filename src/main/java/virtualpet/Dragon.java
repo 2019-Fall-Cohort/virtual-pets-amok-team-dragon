@@ -24,7 +24,7 @@ public abstract class Dragon {
 	}
 
 	public void setMagic(int magic) {
-		this.magic = magic;
+		this.magic = magic;		
 	}
 
 	public int getMagic() {

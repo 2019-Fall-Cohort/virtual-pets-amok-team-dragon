@@ -9,6 +9,11 @@ public class RoboticFireDragon extends RoboticDragon implements BreathesFire {
 
 	@Override
 	public void breathFire(int amount) {
-		setMagic(getMagic() - amount);
+		int newMagicValue = this.getMagic() - amount;
+		if (this.attributeWithinRange(newMagicValue)) {
+			this.setMagic(newMagicValue);
+		} else {
+			this.setMagic(minValue);
+		}
 	}
 }

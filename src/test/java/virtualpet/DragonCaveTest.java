@@ -70,7 +70,7 @@ public class DragonCaveTest {
 		underTestCave.addPetToShelter(underTestOrganicIce);
 
 		underTestCave.doMagic(underTestOrganicIce, 2);
-		int expected = underTestCave.getAsh();
+		int expected = underTestCave.getAshes();
 		assertThat(expected, is(8));
 
 	}
@@ -82,7 +82,7 @@ public class DragonCaveTest {
 		underTestCave.addPetToShelter(underTestRoboticIce);
 
 		underTestCave.doMagic(underTestRoboticIce, 2);
-		int expected = underTestCave.getAsh();
+		int expected = underTestCave.getAshes();
 		assertThat(expected, is(8));
 	}
 

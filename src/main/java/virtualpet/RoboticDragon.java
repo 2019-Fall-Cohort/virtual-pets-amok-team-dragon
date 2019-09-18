@@ -51,7 +51,7 @@ public class RoboticDragon extends Dragon {
 	public void displayRoboticAttributes() {
 		System.out.println("");
 		System.out.println("Current attributes for: " + this.getName());
-		System.out.println("Dragon Type: Robotic");
+		System.out.println("Dragon Type: Robotic " + this.getElement());
 		System.out.println("Oil: " + this.getOil());
 		System.out.println("Battery: " + this.getBattery());
 		System.out.println("Boredom: " + this.getBoredom());

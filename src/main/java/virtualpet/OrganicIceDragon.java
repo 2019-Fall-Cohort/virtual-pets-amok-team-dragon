@@ -8,7 +8,11 @@ public class OrganicIceDragon extends OrganicDragon implements BlowsBitterWind {
 
 	@Override
 	public void blowBitterWind(int amount) {
-		setMagic(getMagic() - amount);
-//		setAsh( )
+		int newMagicValue = this.getMagic() - amount;
+		if (this.attributeWithinRange(newMagicValue)) {
+			this.setMagic(newMagicValue);
+		} else {
+			this.setMagic(minValue);
+		}
 	}
 }

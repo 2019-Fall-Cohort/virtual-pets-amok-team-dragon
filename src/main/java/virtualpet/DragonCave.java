@@ -66,11 +66,11 @@ public class DragonCave {
 		}
 	}
 
-	public int getAsh() {
+	public int getAshes() {
 		return ashBuildUp;
 	}
 
-	public void setAsh(int amount) {
+	public void setAshes(int amount) {
 		this.ashBuildUp = amount;
 	}
 
@@ -78,11 +78,11 @@ public class DragonCave {
 		if (dragon instanceof RoboticIceDragon) {
 			RoboticIceDragon icedragon = (RoboticIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
-			setAsh(getAsh() - amount);
+			setAshes(getAshes() - amount);
 		} else if (dragon instanceof OrganicIceDragon) {
 			OrganicIceDragon icedragon = (OrganicIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
-			setAsh(getAsh() - amount);
+			setAshes(getAshes() - amount);
 		} else if (dragon instanceof RoboticFireDragon) {
 			RoboticFireDragon firedragon = (RoboticFireDragon) dragon;
 			firedragon.breathFire(amount);
@@ -92,7 +92,6 @@ public class DragonCave {
 			firedragon.breathFire(amount);
 			setIcicles(getIcicles() - amount);
 		}
-
 	}
 
 	public int getIcicles() {

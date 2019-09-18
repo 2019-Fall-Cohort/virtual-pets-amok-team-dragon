@@ -42,7 +42,7 @@ public class OrganicDragon extends Dragon {
 	public void displayOrganicAttributes() {
 		System.out.println("");
 		System.out.println("Current attributes for: " + this.getName());
-		System.out.println("Dragon Type: Organic");
+		System.out.println("Dragon Type: Organic " + this.getElement());
 		System.out.println("Hunger: " + this.getHunger());
 		System.out.println("Fatigue: " + this.getFatigue());
 		System.out.println("Boredom: " + this.getBoredom());
