@@ -57,9 +57,32 @@ public class VirtualPetApp {
 	private static void addANewPet() {
 		System.out.println("What would you like to name your pet?");
 		String petName = userInput.nextLine();
-		Dragon pet = new Dragon(petName);
-		petShelter.addPetToShelter(pet);
+		System.out.println("Do you want " + petName + " to be an organic or robotic dragon?");
+		String choiceOfDragon = userInput.nextLine().trim().toLowerCase();
+		System.out.println("Do you want " + petName + " to be a fire or ice dragon?");
+		String attributeOfDragon = userInput.nextLine().trim().toLowerCase();
+
+		if (choiceOfDragon == "organic") {
+			if (attributeOfDragon == "fire") {
+				OrganicFireDragon pet = new OrganicFireDragon(petName);
+				petShelter.addPetToShelter(pet);
+			} else {
+				OrganicIceDragon pet = new OrganicIceDragon(petName);
+				petShelter.addPetToShelter(pet);
+			}
+		} else {
+			if (attributeOfDragon == "fire") {
+				RoboticFireDragon pet = new RoboticFireDragon(petName);
+				petShelter.addPetToShelter(pet);
+			} else {
+				RoboticIceDragon pet = new RoboticIceDragon(petName);
+				petShelter.addPetToShelter(pet);
+		}
 	}
+
+	}
+
+	
 
 	private static void interactWithOnePet() {
 		System.out.println("Which pet would you like to interact with?");
