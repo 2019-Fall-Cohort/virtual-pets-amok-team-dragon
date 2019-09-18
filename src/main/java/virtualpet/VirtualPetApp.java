@@ -33,7 +33,7 @@ public class VirtualPetApp {
 			break;
 
 		case 2:
-			displayAllOrganicPetAttributes();
+			displayAllDragonAttributes();
 			//petShelter.retrieveAllPetAttributes();
 			break;
 
@@ -104,7 +104,7 @@ public class VirtualPetApp {
 		stayInMenu = true;
 
 		while (stayInMenu) {
-			petShelter.retrieveAllPetAttributes();
+			petShelter.retrieveAllOrganicPetAttributes();
 			System.out.println("");
 			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
 			String response = userInput.nextLine().trim().toLowerCase();
@@ -210,15 +210,27 @@ public class VirtualPetApp {
 
 	}
 
-	private static void displayAllOrganicPetAttributes() {		
-		System.out.println("Organic Dragons");
+	private static void displayAllDragonAttributes() {		
+		System.out.println("Organic Dragons:");
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Element"));
 		System.out.print(String.format("|%-10s", "Hunger"));
 		System.out.print(String.format("|%-10s", "Fatigue"));
 		System.out.print(String.format("|%-10s", "Boredom"));
 		System.out.print(String.format("|%-10s|", "Magic"));
-		petShelter.retrieveAllPetAttributes();
+		System.out.println();
+		petShelter.retrieveAllOrganicPetAttributes();
+		System.out.println();
+		
+		System.out.println("Robotic Dragons:");
+		System.out.print(String.format("|%-10s", "Name"));
+		System.out.print(String.format("|%-10s", "Element"));
+		System.out.print(String.format("|%-10s", "Oil"));
+		System.out.print(String.format("|%-10s", "Battery"));
+		System.out.print(String.format("|%-10s", "Boredom"));
+		System.out.print(String.format("|%-10s|", "Magic"));
+		System.out.println();
+		petShelter.retrieveAllRoboticPetAttributes();
 		System.out.println();
 	}
 }

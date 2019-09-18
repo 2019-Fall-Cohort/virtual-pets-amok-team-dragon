@@ -48,7 +48,7 @@ public class DragonCave {
 
 	}
 
-	public String[] retrieveAllPetAttributes() {
+	public String[] retrieveAllOrganicPetAttributes() {
 
 		String[] allOrganicPetAttributes = new String[petList.size()];
 		String arrayRow = "";
@@ -103,6 +103,22 @@ public class DragonCave {
 
 	public void setIcicles(int icicleBuildUp) {
 		this.icicleBuildUp = icicleBuildUp;
+	}
+
+	public void retrieveAllRoboticPetAttributes() {
+		String arrayRow = "";
+		for (Dragon pet : petList.values()) {
+			if (pet instanceof RoboticDragon){
+				RoboticDragon roboticDragon = (RoboticDragon) pet;
+				arrayRow = (String.format("|%-10s", roboticDragon.getName())) 
+						+ (String.format("|%-10s", roboticDragon.getElement()))
+						+ (String.format("|%-10d", roboticDragon.getOil())) 
+						+ (String.format("|%-10d", roboticDragon.getBattery())) 
+						+ (String.format("|%-10d", roboticDragon.getBoredom()))
+						+ (String.format("|%-10d|", roboticDragon.getMagic()));
+			}
+			System.out.println(arrayRow);
+		}		
 	}
 
 }
