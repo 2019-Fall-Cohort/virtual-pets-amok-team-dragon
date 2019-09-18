@@ -116,20 +116,23 @@ public class VirtualPetApp {
 		stayInMenu = true;
 
 		while (stayInMenu) {
-			petShelter.retrieveOrganicPetAttributes();
+			displayAllDragonAttributes();
+			//petShelter.retrieveOrganicPetAttributes();
 			System.out.println("");
-			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
+			System.out.println("What would you like to do?  Feed/Oil, Rest/Charge, Play, Magic, or Back?");
 			String response = userInput.nextLine().trim().toLowerCase();
 			switch (response) {
 			case "feed":
-				System.out.println("How much do you want to feed pets?");
+			case "oil":
+				System.out.println("How much do you want to feed/oil pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				// petShelter.feedAllPets(amount);
+				petShelter.feedAllPets(amount);
 				break;
 
 			case "rest":
-				System.out.println("How much do you want to rest pets?");
+			case "charge":
+				System.out.println("How much do you want to rest/charge pets?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.restAllPets(amount);
@@ -142,11 +145,11 @@ public class VirtualPetApp {
 				petShelter.playWithAllPets(amount);
 				break;
 
-			case "fire":
-				System.out.println("How long should pets breath fire?");
+			case "magic":
+				System.out.println("How much magic should each Dragon use?");
 				amount = userInput.nextInt();
 				userInput.nextLine();
-				// petShelter.doMagicWithAllPets(amount);
+				petShelter.doMagicWithAllPets(amount);
 				break;
 
 			case "back":

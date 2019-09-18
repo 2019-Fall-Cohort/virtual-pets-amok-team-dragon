@@ -111,4 +111,18 @@ public class DragonCave {
 		}		
 	}
 
+	
+	public void doMagicWithAllPets(int amount) {
+		for (Dragon pet : petList.values()) {
+			this.doMagic(pet, amount);
+		}
+	}
+
+	public void feedAllPets(int amount)  {
+		for (Dragon pet : petList.values()) {
+			pet.feedDragon(amount);
+		}
+
+	}
+
 }
