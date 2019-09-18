@@ -48,24 +48,22 @@ public class DragonCave {
 
 	}
 
-	public String[] retrieveAllOrganicPetAttributes() {
+	public void retrieveOrganicPetAttributes() {
 
-		String[] allOrganicPetAttributes = new String[petList.size()];
 		String arrayRow = "";
 
 		for (Dragon pet : petList.values()) {
-			if (pet instanceof OrganicDragon){
+			if (pet instanceof OrganicDragon){	
 				OrganicDragon organicDragon = (OrganicDragon) pet;
 				arrayRow = (String.format("|%-10s", organicDragon.getName())) 
 						+ (String.format("|%-10s", organicDragon.getElement()))
 						+ (String.format("|%-10d", organicDragon.getHunger())) 
 						+ (String.format("|%-10d", organicDragon.getFatigue())) 
 						+ (String.format("|%-10d", organicDragon.getBoredom()))
-						+ (String.format("|%-10d|", organicDragon.getMagic()));
+						+ (String.format("|%-10d|", organicDragon.getMagic()));		
+				System.out.println(arrayRow);
 			}
-			System.out.println(arrayRow);
 		}
-		return allOrganicPetAttributes;
 	}
 
 	public int getAsh() {
@@ -116,8 +114,8 @@ public class DragonCave {
 						+ (String.format("|%-10d", roboticDragon.getBattery())) 
 						+ (String.format("|%-10d", roboticDragon.getBoredom()))
 						+ (String.format("|%-10d|", roboticDragon.getMagic()));
+				System.out.println(arrayRow);
 			}
-			System.out.println(arrayRow);
 		}		
 	}
 

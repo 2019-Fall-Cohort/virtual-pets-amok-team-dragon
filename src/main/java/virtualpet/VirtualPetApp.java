@@ -104,7 +104,7 @@ public class VirtualPetApp {
 		stayInMenu = true;
 
 		while (stayInMenu) {
-			petShelter.retrieveAllOrganicPetAttributes();
+			petShelter.retrieveOrganicPetAttributes();
 			System.out.println("");
 			System.out.println("What would you like to do?  Feed, Rest, Play, Fire, or Back?");
 			String response = userInput.nextLine().trim().toLowerCase();
@@ -211,7 +211,7 @@ public class VirtualPetApp {
 	}
 
 	private static void displayAllDragonAttributes() {		
-		System.out.println("Organic Dragons:");
+		System.out.println("All Dragons:");
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Element"));
 		System.out.print(String.format("|%-10s", "Hunger"));
@@ -219,7 +219,7 @@ public class VirtualPetApp {
 		System.out.print(String.format("|%-10s", "Boredom"));
 		System.out.print(String.format("|%-10s|", "Magic"));
 		System.out.println();
-		petShelter.retrieveAllOrganicPetAttributes();
+		petShelter.retrieveOrganicPetAttributes();
 		System.out.println();
 		
 		System.out.println("Robotic Dragons:");
