@@ -34,13 +34,6 @@ public class DragonCave {
 
 	}
 
-	// public void feedAllPets(int amountFed) {
-	// for (Dragon pet: petList.values()) {
-	// pet.feedDragon(amountFed);
-	// }
-	//
-	// }
-
 	public void playWithAllPets(int timePlayed) {
 		for (Dragon pet : petList.values()) {
 			pet.playWithDragon(timePlayed);
@@ -55,27 +48,21 @@ public class DragonCave {
 
 	}
 
-	// public void doMagicWithAllPets(int breathFire) {
-	// for (Dragon pet: petList.values()) {
-	// pet.breathsFire(breathFire);
-	// }
-	//
-	// }
-
 	public String[] retrieveAllPetAttributes() {
 
-		String[] allPetAttributes = new String[petList.size()];
+		String[] allOrganicPetAttributes = new String[petList.size()];
 		String arrayRow = "";
 
 		for (Dragon pet : petList.values()) {
-
-			arrayRow = (String.format("|%-10s", pet.getName())) +
-			// (String.format("|%-10d", pet.getHunger())) +
-			// (String.format("|%-10d", pet.getFatigue())) +
-					(String.format("|%-10d", pet.getBoredom())) + (String.format("|%-10d|", pet.getMagic()));
+			if (pet instanceof OrganicDragon){
+				OrganicDragon organicDragon = (OrganicDragon) pet;
+				arrayRow = (String.format("|%-10s", organicDragon.getName())) + (String.format("|%-10d", organicDragon.getHunger()))
+						+ (String.format("|%-10d", organicDragon.getFatigue())) + (String.format("|%-10d", organicDragon.getBoredom()))
+						+ (String.format("|%-10d|", organicDragon.getMagic()));
+			}
 		}
 		System.out.println(arrayRow);
-		return allPetAttributes;
+		return allOrganicPetAttributes;
 	}
 
 	public int getAsh() {
