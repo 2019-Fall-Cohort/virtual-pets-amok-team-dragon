@@ -27,13 +27,6 @@ public class DragonCave {
 		return petList.get(petName);
 	}
 
-	public void tickAllPets() {
-		for (Dragon pet : petList.values()) {
-			// pet.tick();
-		}
-
-	}
-
 	public void playWithAllPets(int timePlayed) {
 		for (Dragon pet : petList.values()) {
 			pet.playWithDragon(timePlayed);

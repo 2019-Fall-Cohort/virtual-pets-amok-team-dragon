@@ -11,7 +11,6 @@ public abstract class Dragon {
 	private String name;
 	private int magic;
 	private int boredom;
-	private int tickValue = 1;
 
 	public Dragon(String givenName) {
 		name = givenName;

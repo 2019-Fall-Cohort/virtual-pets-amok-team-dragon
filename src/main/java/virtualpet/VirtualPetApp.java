@@ -1,7 +1,5 @@
 package virtualpet;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class VirtualPetApp {
@@ -103,10 +101,10 @@ public class VirtualPetApp {
 			RoboticDragon dragon = (RoboticDragon) selectedVirtualPet;
 			while (stayInMenu) {
 				dragon.displayRoboticAttributes();
-//				System.out.println("");
-//				System.out.println("What would you like to do?  Oil, Rest, Play, Fire, or Back?");
-//				String response = userInput.nextLine().trim().toLowerCase();
-//				determineUserResponse(response, selectedVirtualPet);
+				System.out.println("");
+				System.out.println("What would you like to do?  Oil, Charge, Play, Magic, or Back?");
+				String response = userInput.nextLine().trim().toLowerCase();
+				determineUserResponseForRoboticDragon(response, dragon);
 			}
 		} else {
 			System.out.println("Something is wrong... fix it, BUM!");
@@ -128,7 +126,6 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				// petShelter.feedAllPets(amount);
-				petShelter.tickAllPets();
 				break;
 
 			case "rest":
@@ -136,7 +133,6 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.restAllPets(amount);
-				petShelter.tickAllPets();
 				break;
 
 			case "play":
@@ -144,7 +140,6 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.playWithAllPets(amount);
-				petShelter.tickAllPets();
 				break;
 
 			case "fire":
@@ -152,7 +147,6 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				// petShelter.doMagicWithAllPets(amount);
-				petShelter.tickAllPets();
 				break;
 
 			case "back":
@@ -226,8 +220,55 @@ public class VirtualPetApp {
 
 	}
 
+	private static void determineUserResponseForRoboticDragon(String response, RoboticDragon dragon) {
+
+		int amount = 0; 
+		switch (response) {
+		case "oil":
+			System.out.println("How much oil do you want to give " + dragon.getName() + "?");
+			amount = userInput.nextInt();
+			userInput.nextLine();
+			dragon.feedDragon(amount);
+			break;
+
+		case "charge":
+			System.out.println("How much do you want to charge " + dragon.getName() + "?");
+			amount = userInput.nextInt();
+			userInput.nextLine();
+			dragon.restDragon(amount);
+			break;
+
+		case "play":
+			System.out.println("How much play time do you want " + dragon.getName() + " to have?");
+			amount = userInput.nextInt();
+			userInput.nextLine();
+			dragon.playWithDragon(amount);
+			break;
+
+		case "magic":
+			if (dragon.getElement().equals("Fire")) {
+				System.out.println("How much fire should " + dragon.getName() + " breath?");
+			} else if (dragon.getElement().equals("Ice")) {
+				System.out.println("How much bitter wind should " + dragon.getName() + " blow?");
+			} else {
+				System.out.println("Something is wrong, FOOL!");
+			}
+			amount = userInput.nextInt();
+			userInput.nextLine();
+			petShelter.doMagic(dragon, amount);
+			break;
+
+		case "back":
+			stayInMenu = false;
+			break;
+
+		default:
+			System.out.println("You so silly!");
+		}
+
+	}
 	private static void displayAllDragonAttributes() {
-		System.out.println("All Dragons:");
+		System.out.println("Organic Dragons:");
 		System.out.print(String.format("|%-10s", "Name"));
 		System.out.print(String.format("|%-10s", "Element"));
 		System.out.print(String.format("|%-10s", "Hunger"));
