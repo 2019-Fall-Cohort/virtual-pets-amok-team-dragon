@@ -49,25 +49,6 @@ public abstract class Dragon {
 		}
 	}
 
-//	public void tick() {
-//		hunger = hunger + tickValue;
-//		fatigue = fatigue + tickValue;
-//		boredom = boredom + tickValue;
-//		magic = magic + tickValue;
-//		if (hunger > maxValue) {
-//			hunger = maxValue;
-//		}
-////		if (fatigue > maxValue) {
-////			fatigue = maxValue;
-////		}
-//		if (boredom > maxValue) {
-//			boredom = maxValue;
-//		}
-//		if (magic > maxValue) {
-//			magic = maxValue;
-//		}
-//	}
-
 	public void displayPetAttributes() {
 
 		System.out.println("");
@@ -114,6 +95,17 @@ public abstract class Dragon {
 		}
 
 		return isWithinRange;
+	}
+	
+	public String getElement() {
+		
+		if (this instanceof BreathesFire) {
+			return "Fire";
+		}
+		if (this instanceof BlowsBitterWind) {
+			return "Ice";
+		}		
+		return "Inbred";
 	}
 
 }

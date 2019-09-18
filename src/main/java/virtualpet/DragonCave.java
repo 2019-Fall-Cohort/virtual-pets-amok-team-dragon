@@ -56,8 +56,11 @@ public class DragonCave {
 		for (Dragon pet : petList.values()) {
 			if (pet instanceof OrganicDragon){
 				OrganicDragon organicDragon = (OrganicDragon) pet;
-				arrayRow = (String.format("|%-10s", organicDragon.getName())) + (String.format("|%-10d", organicDragon.getHunger()))
-						+ (String.format("|%-10d", organicDragon.getFatigue())) + (String.format("|%-10d", organicDragon.getBoredom()))
+				arrayRow = (String.format("|%-10s", organicDragon.getName())) 
+						+ (String.format("|%-10s", organicDragon.getElement()))
+						+ (String.format("|%-10d", organicDragon.getHunger())) 
+						+ (String.format("|%-10d", organicDragon.getFatigue())) 
+						+ (String.format("|%-10d", organicDragon.getBoredom()))
 						+ (String.format("|%-10d|", organicDragon.getMagic()));
 			}
 			System.out.println(arrayRow);

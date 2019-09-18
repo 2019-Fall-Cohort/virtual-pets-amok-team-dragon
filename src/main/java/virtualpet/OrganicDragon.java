@@ -38,5 +38,4 @@ public class OrganicDragon extends Dragon {
 			this.hunger = minValue;
 		}
 	}
-
 }

@@ -34,7 +34,7 @@ public class VirtualPetApp {
 
 		case 2:
 			displayAllOrganicPetAttributes();
-			petShelter.retrieveAllPetAttributes();
+			//petShelter.retrieveAllPetAttributes();
 			break;
 
 		case 3:
@@ -66,8 +66,6 @@ public class VirtualPetApp {
 			if (attributeOfDragon.equals("fire")) {
 				OrganicFireDragon pet = new OrganicFireDragon(petName);
 				petShelter.addPetToShelter(pet);
-				System.out.println(pet.getName());
-				System.out.println(pet.getClass());
 
 			} else {
 				OrganicIceDragon pet = new OrganicIceDragon(petName);
@@ -212,14 +210,15 @@ public class VirtualPetApp {
 
 	}
 
-	private static void displayAllOrganicPetAttributes() {
+	private static void displayAllOrganicPetAttributes() {		
+		System.out.println("Organic Dragons");
 		System.out.print(String.format("|%-10s", "Name"));
+		System.out.print(String.format("|%-10s", "Element"));
 		System.out.print(String.format("|%-10s", "Hunger"));
 		System.out.print(String.format("|%-10s", "Fatigue"));
 		System.out.print(String.format("|%-10s", "Boredom"));
 		System.out.print(String.format("|%-10s|", "Magic"));
+		petShelter.retrieveAllPetAttributes();
 		System.out.println();
-		String[] retrievedAttributes = petShelter.retrieveAllPetAttributes();
-
 	}
 }
