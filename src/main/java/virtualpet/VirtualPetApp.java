@@ -63,18 +63,26 @@ public class VirtualPetApp {
 			if (attributeOfDragon.equals("fire")) {
 				OrganicFireDragon pet = new OrganicFireDragon(petName);
 				petShelter.addPetToShelter(pet);
+				int a = petShelter.getAshes();
+				petShelter.setAshes(a + 1);
 
 			} else {
 				OrganicIceDragon pet = new OrganicIceDragon(petName);
 				petShelter.addPetToShelter(pet);
+				int b = petShelter.getIcicles();
+				petShelter.setIcicles(b + 1);
 			}
 		} else {
 			if (attributeOfDragon.equals("fire")) {
 				RoboticFireDragon pet = new RoboticFireDragon(petName);
 				petShelter.addPetToShelter(pet);
+				int a = petShelter.getAshes();
+				petShelter.setAshes(a + 1);
 			} else {
 				RoboticIceDragon pet = new RoboticIceDragon(petName);
 				petShelter.addPetToShelter(pet);
+				int b = petShelter.getIcicles();
+				petShelter.setIcicles(b + 1);
 			}
 		}
 
@@ -117,7 +125,6 @@ public class VirtualPetApp {
 
 		while (stayInMenu) {
 			displayAllDragonAttributes();
-			//petShelter.retrieveOrganicPetAttributes();
 			System.out.println("");
 			System.out.println("What would you like to do?  Feed/Oil, Rest/Charge, Play, Magic, or Back?");
 			String response = userInput.nextLine().trim().toLowerCase();
@@ -279,6 +286,7 @@ public class VirtualPetApp {
 		System.out.print(String.format("|%-10s", "Boredom"));
 		System.out.print(String.format("|%-10s|", "Magic"));
 		System.out.println();
+		System.out.println("|-----------------------------------------------------------------|");
 		petShelter.retrieveOrganicPetAttributes();
 		System.out.println();
 
@@ -290,7 +298,16 @@ public class VirtualPetApp {
 		System.out.print(String.format("|%-10s", "Boredom"));
 		System.out.print(String.format("|%-10s|", "Magic"));
 		System.out.println();
+		System.out.println("|-----------------------------------------------------------------|");
 		petShelter.retrieveAllRoboticPetAttributes();
+		System.out.println();
+		
+		System.out.println("Shelter Attributes:");
+		System.out.print(String.format("|%-17s", "Ash Build Up"));
+		System.out.print(String.format("|%-17s|", "Icicle Build Up"));
+		System.out.println();
+		System.out.println("|-----------------------------------");
+		petShelter.retrieveShelterAttributes();
 		System.out.println();
 	}
 }

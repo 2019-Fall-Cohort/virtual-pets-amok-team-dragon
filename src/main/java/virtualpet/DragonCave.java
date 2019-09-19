@@ -16,7 +16,6 @@ public class DragonCave {
 
 	public void addPetToShelter(Dragon petToAdd) {
 		petList.put(petToAdd.getName(), petToAdd);
-
 	}
 
 	public Collection<Dragon> retrievePetList() {
@@ -46,14 +45,14 @@ public class DragonCave {
 		String arrayRow = "";
 
 		for (Dragon pet : petList.values()) {
-			if (pet instanceof OrganicDragon){	
+			if (pet instanceof OrganicDragon) {
 				OrganicDragon organicDragon = (OrganicDragon) pet;
-				arrayRow = (String.format("|%-10s", organicDragon.getName())) 
+				arrayRow = (String.format("|%-10s", organicDragon.getName()))
 						+ (String.format("|%-10s", organicDragon.getElement()))
-						+ (String.format("|%-10d", organicDragon.getHunger())) 
-						+ (String.format("|%-10d", organicDragon.getFatigue())) 
+						+ (String.format("|%-10d", organicDragon.getHunger()))
+						+ (String.format("|%-10d", organicDragon.getFatigue()))
 						+ (String.format("|%-10d", organicDragon.getBoredom()))
-						+ (String.format("|%-10d|", organicDragon.getMagic()));		
+						+ (String.format("|%-10d|", organicDragon.getMagic()));
 				System.out.println(arrayRow);
 			}
 		}
@@ -72,18 +71,30 @@ public class DragonCave {
 			RoboticIceDragon icedragon = (RoboticIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
 			setAshes(getAshes() - amount);
+			Double doubleD = (getIcicles() * 1.5); 
+			int newIceValue = doubleD.intValue();
+			setIcicles(newIceValue);
 		} else if (dragon instanceof OrganicIceDragon) {
 			OrganicIceDragon icedragon = (OrganicIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
 			setAshes(getAshes() - amount);
+			Double doubleD = (getIcicles() * 1.5); 
+			int newIceValue = doubleD.intValue();
+			setIcicles(newIceValue);
 		} else if (dragon instanceof RoboticFireDragon) {
 			RoboticFireDragon firedragon = (RoboticFireDragon) dragon;
 			firedragon.breathFire(amount);
 			setIcicles(getIcicles() - amount);
+			Double doubleD = (getAshes() * 1.5); 
+			int newAshValue = doubleD.intValue();
+			setAshes(newAshValue);
 		} else if (dragon instanceof OrganicFireDragon) {
 			OrganicFireDragon firedragon = (OrganicFireDragon) dragon;
 			firedragon.breathFire(amount);
 			setIcicles(getIcicles() - amount);
+			Double doubleD = (getAshes() * 1.5); 
+			int newAshValue = doubleD.intValue();
+			setAshes(newAshValue);
 		}
 	}
 
@@ -98,20 +109,19 @@ public class DragonCave {
 	public void retrieveAllRoboticPetAttributes() {
 		String arrayRow = "";
 		for (Dragon pet : petList.values()) {
-			if (pet instanceof RoboticDragon){
+			if (pet instanceof RoboticDragon) {
 				RoboticDragon roboticDragon = (RoboticDragon) pet;
-				arrayRow = (String.format("|%-10s", roboticDragon.getName())) 
+				arrayRow = (String.format("|%-10s", roboticDragon.getName()))
 						+ (String.format("|%-10s", roboticDragon.getElement()))
-						+ (String.format("|%-10d", roboticDragon.getOil())) 
-						+ (String.format("|%-10d", roboticDragon.getBattery())) 
+						+ (String.format("|%-10d", roboticDragon.getOil()))
+						+ (String.format("|%-10d", roboticDragon.getBattery()))
 						+ (String.format("|%-10d", roboticDragon.getBoredom()))
 						+ (String.format("|%-10d|", roboticDragon.getMagic()));
 				System.out.println(arrayRow);
 			}
-		}		
+		}
 	}
 
-	
 	public void doMagicWithAllPets(int amount) {
 		for (Dragon pet : petList.values()) {
 			this.doMagic(pet, amount);
@@ -122,6 +132,12 @@ public class DragonCave {
 		for (Dragon pet : petList.values()) {
 			pet.feedDragon(amount);
 		}
+	}
+
+	public void retrieveShelterAttributes() {
+		String shelterAttributes = (String.format("|%-17d", this.getAshes()))
+				+ (String.format("|%-17d|", this.getIcicles()));
+		System.out.println(shelterAttributes);
 
 	}
 
