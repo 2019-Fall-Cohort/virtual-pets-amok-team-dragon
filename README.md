@@ -48,3 +48,6 @@ Shelter Attributes:
 |-----------------------------------|
 |12               |12               |
 ```
+
+**Playing Dragon Virtual Pets:**
+When the console application first starts running, the first action the user must do is option "1" to add some dragons to the cave.  The dragon names are case sensitive and must be unique to be saved successfully to the cave.  All other menu input options are not case sensitive.
