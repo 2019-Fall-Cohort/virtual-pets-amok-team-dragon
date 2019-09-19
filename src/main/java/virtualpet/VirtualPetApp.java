@@ -54,12 +54,12 @@ public class VirtualPetApp {
 	private static void addANewPet() {
 		System.out.println("What would you like to name your pet?");
 		String petName = userInput.nextLine();
-		System.out.println("Do you want " + petName + " to be an organic or robotic dragon?");
+		System.out.println("Do you want " + petName + " to be an organic or robotic dragon? (type \"o\" or \"r\")");
 		String choiceOfDragon = userInput.nextLine().trim().toLowerCase();
 		System.out.println("Do you want " + petName + " to be a fire or ice dragon?");
 		String attributeOfDragon = userInput.nextLine().trim().toLowerCase();
 
-		if (choiceOfDragon.equals("organic")) {
+		if (choiceOfDragon.equals("o")) {
 			if (attributeOfDragon.equals("fire")) {
 				OrganicFireDragon pet = new OrganicFireDragon(petName);
 				petShelter.addPetToShelter(pet);
@@ -135,6 +135,7 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.feedAllPets(amount);
+				petShelter.tickAll();
 				break;
 
 			case "rest":
@@ -143,6 +144,7 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.restAllPets(amount);
+				petShelter.tickAll();
 				break;
 
 			case "play":
@@ -150,6 +152,7 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.playWithAllPets(amount);
+				petShelter.tickAll();
 				break;
 
 			case "magic":
@@ -157,6 +160,7 @@ public class VirtualPetApp {
 				amount = userInput.nextInt();
 				userInput.nextLine();
 				petShelter.doMagicWithAllPets(amount);
+				petShelter.tickAll();
 				break;
 
 			case "back":
@@ -165,6 +169,7 @@ public class VirtualPetApp {
 
 			default:
 				System.out.println("You so silly!");
+				petShelter.tickAll();
 			}
 
 		}
@@ -191,6 +196,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.feedDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "rest":
@@ -198,6 +204,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.restDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "play":
@@ -205,6 +212,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.playWithDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "magic":
@@ -218,6 +226,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			petShelter.doMagic(dragon, amount);
+			petShelter.tickAll();
 			break;
 
 		case "back":
@@ -226,6 +235,7 @@ public class VirtualPetApp {
 
 		default:
 			System.out.println("You so silly!");
+			petShelter.tickAll();
 		}
 
 	}
@@ -239,6 +249,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.feedDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "charge":
@@ -246,6 +257,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.restDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "play":
@@ -253,6 +265,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			dragon.playWithDragon(amount);
+			petShelter.tickAll();
 			break;
 
 		case "magic":
@@ -266,6 +279,7 @@ public class VirtualPetApp {
 			amount = userInput.nextInt();
 			userInput.nextLine();
 			petShelter.doMagic(dragon, amount);
+			petShelter.tickAll();
 			break;
 
 		case "back":
@@ -274,6 +288,7 @@ public class VirtualPetApp {
 
 		default:
 			System.out.println("You so silly!");
+			petShelter.tickAll();
 		}
 
 	}

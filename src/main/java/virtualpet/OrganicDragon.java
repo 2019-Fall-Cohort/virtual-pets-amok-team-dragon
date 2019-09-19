@@ -14,6 +14,14 @@ public class OrganicDragon extends Dragon {
 	public int getHunger() {
 		return hunger;
 	}
+	
+	public void setHunger(int newHunger) {
+		hunger = newHunger;
+	}
+	
+	public void setFatigue(int newFatigue) {
+		fatigue = newFatigue;
+	}
 
 	public int getFatigue() {
 		return fatigue;

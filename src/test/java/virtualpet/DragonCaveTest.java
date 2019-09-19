@@ -98,4 +98,53 @@ public class DragonCaveTest {
 		int expected = underTestCave.getIcicles();
 		assertThat(expected, is(6));
 	}
+	
+	@Test
+	public void shouldBeAbleToAllDragons() throws Exception {
+		RoboticFireDragon underTestRoboticFire = new RoboticFireDragon("Test Flamey");
+		RoboticIceDragon underTestRoboticIce = new RoboticIceDragon("Test Flurry");
+		DragonCave underTestCave = new DragonCave();
+		underTestCave.addPetToShelter(underTestRoboticFire);
+		underTestCave.addPetToShelter(underTestRoboticIce);
+		OrganicFireDragon underTestOrganicFire = new OrganicFireDragon("Test Softy");
+		OrganicIceDragon underTestOrganicIce = new OrganicIceDragon("Test Hardy");
+		underTestCave.addPetToShelter(underTestOrganicFire);
+		underTestCave.addPetToShelter(underTestOrganicIce);
+		
+		underTestCave.tickAll();
+		
+		assertThat(underTestRoboticFire.getBattery(), is(9));
+		assertThat(underTestRoboticFire.getOil(), is(9));
+		assertThat(underTestRoboticIce.getBoredom(), is(11));
+		assertThat(underTestOrganicFire.getHunger(), is(11));
+		assertThat(underTestOrganicIce.getFatigue(), is(11));
+	}
+	
+	@Test
+	public void shouldNotGoBelowZeroWithTick() throws Exception {
+		RoboticFireDragon underTestRoboticFire = new RoboticFireDragon("Test Flamey");
+		RoboticIceDragon underTestRoboticIce = new RoboticIceDragon("Test Flurry");
+		DragonCave underTestCave = new DragonCave();
+		underTestCave.addPetToShelter(underTestRoboticFire);
+		underTestCave.addPetToShelter(underTestRoboticIce);
+		
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		underTestCave.tickAll();
+		
+		assertThat(underTestRoboticIce.getBattery(), is(0));
+		assertThat(underTestRoboticIce.getOil(), is(0));
+		assertThat(underTestRoboticFire.getBattery(), is(0));
+		assertThat(underTestRoboticFire.getOil(), is(0));
+	}
 }

@@ -71,28 +71,28 @@ public class DragonCave {
 			RoboticIceDragon icedragon = (RoboticIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
 			setAshes(getAshes() - amount);
-			Double doubleD = (getIcicles() * 1.5); 
+			Double doubleD = (getIcicles() * 1.5);
 			int newIceValue = doubleD.intValue();
 			setIcicles(newIceValue);
 		} else if (dragon instanceof OrganicIceDragon) {
 			OrganicIceDragon icedragon = (OrganicIceDragon) dragon;
 			icedragon.blowBitterWind(amount);
 			setAshes(getAshes() - amount);
-			Double doubleD = (getIcicles() * 1.5); 
+			Double doubleD = (getIcicles() * 1.5);
 			int newIceValue = doubleD.intValue();
 			setIcicles(newIceValue);
 		} else if (dragon instanceof RoboticFireDragon) {
 			RoboticFireDragon firedragon = (RoboticFireDragon) dragon;
 			firedragon.breathFire(amount);
 			setIcicles(getIcicles() - amount);
-			Double doubleD = (getAshes() * 1.5); 
+			Double doubleD = (getAshes() * 1.5);
 			int newAshValue = doubleD.intValue();
 			setAshes(newAshValue);
 		} else if (dragon instanceof OrganicFireDragon) {
 			OrganicFireDragon firedragon = (OrganicFireDragon) dragon;
 			firedragon.breathFire(amount);
 			setIcicles(getIcicles() - amount);
-			Double doubleD = (getAshes() * 1.5); 
+			Double doubleD = (getAshes() * 1.5);
 			int newAshValue = doubleD.intValue();
 			setAshes(newAshValue);
 		}
@@ -128,7 +128,7 @@ public class DragonCave {
 		}
 	}
 
-	public void feedAllPets(int amount)  {
+	public void feedAllPets(int amount) {
 		for (Dragon pet : petList.values()) {
 			pet.feedDragon(amount);
 		}
@@ -141,4 +141,131 @@ public class DragonCave {
 
 	}
 
+	public void tickAll() {
+		for (Dragon dragon : petList.values()) {
+			if (dragon instanceof RoboticIceDragon) {
+				RoboticIceDragon icedragon = (RoboticIceDragon) dragon;
+
+				int newValue = icedragon.getOil() - icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setOil(newValue);
+				} else {
+					icedragon.setOil(icedragon.minValue);
+				}
+
+				newValue = icedragon.getBattery() - icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setBattery(newValue);
+				} else {
+					icedragon.setBattery(icedragon.minValue);
+				}
+
+				newValue = icedragon.getMagic() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setMagic(newValue);
+				} else {
+					icedragon.setMagic(icedragon.maxValue);
+				}
+
+				newValue = icedragon.getBoredom() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setBoredom(newValue);
+				} else {
+					icedragon.setBoredom(icedragon.maxValue);
+				}
+
+			} else if (dragon instanceof OrganicIceDragon) {
+				OrganicIceDragon icedragon = (OrganicIceDragon) dragon;
+
+				int newValue = icedragon.getHunger() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setHunger(newValue);
+				} else {
+					icedragon.setHunger(icedragon.maxValue);
+				}
+
+				newValue = icedragon.getFatigue() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setFatigue(newValue);
+				} else {
+					icedragon.setFatigue(icedragon.maxValue);
+				}
+
+				newValue = icedragon.getMagic() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setMagic(newValue);
+				} else {
+					icedragon.setMagic(icedragon.maxValue);
+				}
+
+				newValue = icedragon.getBoredom() + icedragon.tickValue;
+				if (icedragon.attributeWithinRange(newValue)) {
+					icedragon.setBoredom(newValue);
+				} else {
+					icedragon.setBoredom(icedragon.maxValue);
+				}
+
+			} else if (dragon instanceof RoboticFireDragon) {
+				RoboticFireDragon firedragon = (RoboticFireDragon) dragon;
+				int newValue = firedragon.getOil() - firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setOil(newValue);
+				} else {
+					firedragon.setOil(firedragon.minValue);
+				}
+
+				newValue = firedragon.getBattery() - firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setBattery(newValue);
+				} else {
+					firedragon.setBattery(firedragon.minValue);
+				}
+
+				newValue = firedragon.getMagic() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setMagic(newValue);
+				} else {
+					firedragon.setMagic(firedragon.maxValue);
+				}
+
+				newValue = firedragon.getBoredom() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setBoredom(newValue);
+				} else {
+					firedragon.setBoredom(firedragon.maxValue);
+				}
+
+			} else if (dragon instanceof OrganicFireDragon) {
+				OrganicFireDragon firedragon = (OrganicFireDragon) dragon;
+				int newValue = firedragon.getHunger() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setHunger(newValue);
+				} else {
+					firedragon.setHunger(firedragon.maxValue);
+				}
+
+				newValue = firedragon.getFatigue() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setFatigue(newValue);
+				} else {
+					firedragon.setFatigue(firedragon.maxValue);
+				}
+
+				newValue = firedragon.getMagic() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setMagic(newValue);
+				} else {
+					firedragon.setMagic(firedragon.maxValue);
+				}
+
+				newValue = firedragon.getBoredom() + firedragon.tickValue;
+				if (firedragon.attributeWithinRange(newValue)) {
+					firedragon.setBoredom(newValue);
+				} else {
+					firedragon.setBoredom(firedragon.maxValue);
+				}
+
+			}
+		}
+	}
 }

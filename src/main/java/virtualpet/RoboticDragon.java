@@ -16,7 +16,7 @@ public class RoboticDragon extends Dragon {
 		return oil;
 	}
 
-	private void setOil(int oil) {
+	public void setOil(int oil) {
 		this.oil = oil;
 	}
 
@@ -24,7 +24,7 @@ public class RoboticDragon extends Dragon {
 		return battery;
 	}
 
-	private void setBattery(int battery) {
+	public void setBattery(int battery) {
 		this.battery = battery;
 	}
 

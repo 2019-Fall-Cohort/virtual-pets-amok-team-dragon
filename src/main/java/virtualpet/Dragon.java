@@ -4,9 +4,10 @@ import java.util.Random;
 
 public abstract class Dragon {
 
-	static int minValue = 0;
-	static int maxValue = 100;
-	static int defaultValue = 10;
+	int minValue = 0;
+	int maxValue = 100;
+	int defaultValue = 10;
+	int tickValue = 1;
 
 	private String name;
 	private int magic;
