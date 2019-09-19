@@ -321,7 +321,7 @@ public class VirtualPetApp {
 		System.out.print(String.format("|%-17s", "Ash Build Up"));
 		System.out.print(String.format("|%-17s|", "Icicle Build Up"));
 		System.out.println();
-		System.out.println("|-----------------------------------");
+		System.out.println("|-----------------------------------|");
 		petShelter.retrieveShelterAttributes();
 		System.out.println();
 	}
