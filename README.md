@@ -37,7 +37,7 @@ Organic Dragons:
 |Max       |Fire      |10        |10        |10        |10        |
 |Larry     |Ice       |10        |10        |10        |10        |
 
-Robotic Dragons:`
+Robotic Dragons:
 |Name      |Element   |Oil       |Battery   |Boredom   |Magic     |
 |-----------------------------------------------------------------|
 |George    |Fire      |10        |10        |10        |10        |
