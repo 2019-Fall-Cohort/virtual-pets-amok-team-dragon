@@ -4,10 +4,10 @@
 
 ### Team Members
 
-- Brian Boss
+- Brian Bross
 - Brendin Headlee
 - Diana McIntosh
-- Robby Remmmega
+- Robby Remmega
 - Jake Savage
 
 
