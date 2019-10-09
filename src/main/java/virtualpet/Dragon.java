@@ -60,7 +60,11 @@ public abstract class Dragon {
 		int randomNum = rand.nextInt(newMaxValue);
 		return randomNum;
 	}
-
+	/*
+	 * Remove unused methods from the code base, the two above methods are never used in the application
+	 * and without a reason to be there they add to the cognitive load of any developer that might work on this
+	 * project after you.
+	 */
 	@Override
 	public String toString() {
 		return name;
@@ -93,7 +97,7 @@ public abstract class Dragon {
 		if (this instanceof BlowsBitterWind) {
 			return "Ice";
 		}		
-		return "Inbred";
+		return "Inbred"; //This is cute
 	}
 
 }

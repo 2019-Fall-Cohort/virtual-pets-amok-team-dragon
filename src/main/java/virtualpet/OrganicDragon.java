@@ -57,5 +57,10 @@ public class OrganicDragon extends Dragon {
 		System.out.println(this.getElement() + " Magic: " + this.getMagic());
 		System.out.println("");
 	}
+	/*
+	* I would have liked to have seen the 'sout' method calls in the application class, using 'sout' calls
+	* in the dragon classes leaves a dependency to the 'sout' method and makes it a rigid class that can only be used
+	* in console apps.
+	 */
 	
 }

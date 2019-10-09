@@ -41,5 +41,10 @@ public class DragonTest {
 //		assertEquals(magic, 11);
 //
 //	}
-
+/*
+* I would encourage you to go ahead and delete unused tests in the future.  If they don't
+* work because of changes to your classes, change them to match a changing requirement.  If
+* they are not needed anymore, remove them.  Commenting them out leaves them behind is poor form and
+* adds to cognitive load for future developers.
+ */
 }

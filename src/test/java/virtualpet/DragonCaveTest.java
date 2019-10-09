@@ -141,7 +141,24 @@ public class DragonCaveTest {
 		underTestCave.tickAll();
 		underTestCave.tickAll();
 		underTestCave.tickAll();
-		
+		/*
+		Consider a `for` loop for the above, something like:
+		```
+			for (int i = 0; i < 10; i++) {
+				underTestCave.tickAll();
+			}
+		```
+		This would help make your code more concise and reduce duplicate code.  You could even extract a 'helper method'
+		to do this:
+		```
+		public void tickCaveMultipleTimes(DragonCave cave, int timesToTick) {
+			for (int i = 0; i < timesToTick; i++) {
+				underTestCave.tickAll();
+			}
+		}
+		```
+		And then make a call to that method like this `tickCaveMultipleTimes(underTestCave, 13);
+		 */
 		assertThat(underTestRoboticIce.getBattery(), is(0));
 		assertThat(underTestRoboticIce.getOil(), is(0));
 		assertThat(underTestRoboticFire.getBattery(), is(0));
